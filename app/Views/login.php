@@ -32,7 +32,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="titulo" >
                 <div class="logo">
-                    <img class="imagen" src="<?php base_url(); ?>public\img\logo-umc.png" alt="logo-umc">
+                    <img class="imagen" src="<?php base_url(); ?>public\img\logo-umc.webp" alt="logo-umc">
                 </div>
                 <h1 class="title">UMC Marketplace</h1>
             </div>

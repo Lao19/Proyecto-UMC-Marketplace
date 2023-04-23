@@ -21,6 +21,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'auth' => \App\Filters\AuthFilter::class,
+        
         //'alreadyLoggedIn' => \App\Filters\AlreadyLoggedInFilter::class,
         //'alreadyLoggedInFilter' => \App\Filters\AlreadyLoggedInFilter::class,
         //'alreadyLoggedInFilter' => AlreadyLoggedInFilter::class
@@ -32,6 +34,7 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
+            'auth' => ['except' => ['login','register']], // Aquí puedes especificar las rutas que no deben ser filtradas por el filtro de autenticación
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',

@@ -122,7 +122,6 @@ class Sesion extends BaseController
             session()->setFlashdata('Error', 'Usuario o contraseña no válidas');
             return redirect()->to(base_url('login'))->with('Error', 'El usuario o la contraseña son incorrectas :´(');
         }
-    
 
     }
 
