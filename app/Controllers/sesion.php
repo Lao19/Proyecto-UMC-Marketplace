@@ -4,7 +4,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 
-
 class Sesion extends BaseController
 {
     #ayudantes para tratar el baseurl y el form (register)
@@ -20,12 +19,6 @@ class Sesion extends BaseController
     {
         return view('register');
     }
-
-    public function inicio ()
-    {
-        return view('inicio');
-    }
-
     #Aca creamos el usuario(register)
     public function create(){
 
@@ -45,7 +38,7 @@ class Sesion extends BaseController
             ],
 
             'cedula' => [
-                'rules'  => 'required|is_unique[usuarios.cedula]|numeric',
+                'rules'  => 'required|min_length[7]|max_length[8]|is_unique[usuarios.cedula]|numeric',
                 'errors' => [
                     'required' => 'Se necesita tu cédula.',
                     'is_unique' => 'Esta cédula ya ha sido elegida.',
@@ -74,7 +67,7 @@ class Sesion extends BaseController
 
         if(!$validation){
 
-            return  redirect()->to('register')->with('validation', $this->validator)->withInput();
+            return  redirect()->to(base_url('register'))->with('validation', $this->validator)->withInput();
 
         }else{
             //Registro en la database
@@ -89,7 +82,7 @@ class Sesion extends BaseController
                'apellido'=>$apellido,
                 'cedula'=>$cedula,
                 'usuario'=>$usuario,
-               'password'=>$password //Hash::make($password),
+               'password'=> password_hash($password, PASSWORD_BCRYPT),
             ];
 
             $UsuarioModel = new UsuarioModel();
@@ -105,23 +98,35 @@ class Sesion extends BaseController
         }
     }
 
-
     protected $session;
     #Aca verificamos el login(index) ta dudosa junto a las rutas
     public function login(){
+
         $Usuario = new UsuarioModel();
         $usuario = $this->request->getPost('usuario');
         $password = $this->request->getPost('password');
     
         $datosUsuario = $Usuario->where(['usuario' => $usuario])->first();
     
-        if (!empty($datosUsuario) && $datosUsuario['password'] == $password) {
-            $this->session->set("usuario", $datosUsuario);
+        if (!empty($datosUsuario) && password_verify($password, $datosUsuario['password'])) {
+            $session = session();
+            $session->set("usuario", $datosUsuario);
+            //use ese print para mostrar los datos de sesion
+            // print_r ($session->get());
+            // die();
             return redirect()->to(base_url('inicio'));
         }  else {
             session()->setFlashdata('Error', 'Usuario o contraseña no válidas');
             return redirect()->to(base_url('login'))->with('Error', 'El usuario o la contraseña son incorrectas :´(');
         }
+        // esto va en controlador sesion lo puedes colocar al final 
+    }
+
+    public function logout(){
+
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/sesion/login');
 
     }
 

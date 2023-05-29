@@ -55,11 +55,13 @@ body {
 
 
 /*Estilos de botones de las cartas*/
-.row .btn {
+.btn {
     background-color: #E6DA50;
+      color: rgb(255, 255, 255);
 }
-.row .btn:hover {
-    background-color: #fff;
+.btn:hover {
+    background-color: #7591FA;
+      color: black;
 }
 
 

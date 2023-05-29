@@ -19,19 +19,94 @@
     <script src="https://kit.fontawesome.com/3af059f722.js" crossorigin="anonymous"></script>
 
     <!--Hoja de estilos css-->
-    <link rel="stylesheet" href="<?php base_url();?>public\style-profile.css">
+    <link rel="stylesheet" href="<?php base_url();?>../public\style-profile.css">
 
 	<!-- link al jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-  <!--Llamado al archivo header que contiene la barra de navegacion-->
-  <?php
-    include_once "header.php";
-  ?>
+  <!--Barra de navegacion-->
+  <header style="position:sticky; top: 0; z-index: 1000;"> 
+  
+    <nav class="navbar navbar-dark bg-dark sticky-top" >
+
+      <div class="container-fluid">
+
+        <!--titulo y logo de la barra de navegacion-->
+        <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
+          <img class="logo-nav" src="../public\img\logo-umc.webp" alt="">
+          UMC Marketplace
+        </a>
+
+        <!--Barra y boton de busqueda-->
+        <nav class="navbar bg-dark busqueda ">
+          <div class="container-fluid">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-light btn-busqueda" type="submit">
+                <img class="buscar-logo" src="../public\img\busqueda.svg" alt="">
+              </button>
+            </form>
+          </div>
+        </nav>
+
+        <!--Boton del menu desplegable a la derecha-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars fa-lg" style="color: #e6da50;"></i>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+
+          <!--Titulo del menu desplegable-->
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+              <i class="fa-solid fa-bars fa-2xl icon" style="color: #e6da50;"></i>
+              Menú
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <!--Lista de botones del menu desplegable-->
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+              	<!--Boton al perfil del usuario-->
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost/Proyecto-Uni/profile/<?php echo session('usuario')['usuario']; ?>">
+						<i class="fa-solid fa-user fa-xl icon" style="color: #50b9e6;"></i>
+						Perfil
+					</a>
+				</li>
+			
+			<!--Boton para hacer una publicacion-->
+              <li class="nav-item active">
+                <a class="nav-link" href="http://localhost/Proyecto-Uni/postear">
+                  <i class="fa-solid fa-upload fa-xl icon" style="color: #50e66e;"></i>
+                  Haz una publicación
+                </a>
+              </li>
+
+              <!--Boton para cerrar sesion-->
+                <li class="nav-item active">
+                 <a class="nav-link" href="<?php echo base_url();?>/sesion/login">
+                  <i class="fa-solid fa-right-from-bracket fa-xl icon" style="color: #e65850;"></i>
+                  Cerrar sesión
+                </a>
+              </li>
+
+              
+            </ul>
+            
+          </div>
+
+        </div>
+
+      </div>
+
+    </nav>
+  </header> 
 
 	<!--Cuadro de ajustes del perfil-->
 	<section class="my-3">
@@ -42,7 +117,7 @@
 			</h1>
 
 			<!-- contenedor general de toda la parte del perfil -->
-			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+			<div class="bg-white shadow d-block d-sm-flex contenedor">
 
 				<div class="profile-tab-nav border-right">
 					<!-- foto de perfil escogiendo avatares -->
@@ -74,20 +149,20 @@
 					
 							<!-- Espacio donde van el nombre y el apellido del usuario -->
 							</div>
-							<h4 class="text-center">Nombre y Apellido</h4>
+							
 						</div>
 
 					<!-- botones para cambiar entre configuracion de cuenta y de publicaciones -->
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
 						<!-- boton para los ajustes de la cuenta -->
-						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+						<a class="nav-link active mr-2" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
 							<i class="fa fa-home text-center mr-1"></i> 
 							Cuenta
 						</a>
 
 						<!-- boton para los ajustes de las publicaciones -->
-						<a class="nav-link" id="publication-tab" data-toggle="pill" href="#publication" role="tab" aria-controls="publication" aria-selected="false">
+						<a class="nav-link mr-2" id="publication-tab" data-toggle="pill" href="#publication" role="tab" aria-controls="publication" aria-selected="false">
 							<i class="fa fa-key text-center mr-1"></i> 
 							Publicaciones
 						</a>
@@ -108,73 +183,57 @@
 							</h3>
 
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Nombre</label>
-										<span id="nombre" class="form-control"></span>
-										<!-- <input type="text" class="form-control" value="nombre"> -->
-									</div>
+								<div class="form-group">
+									<label>Nombre</label>
+									<span id="nombre" class="form-control"><?php echo $nombre; ?></span>
+
 								</div>
-								<div class="col-md-6">
+
+								</div>
+								<div >
 									<div class="form-group">
 										<label>Apellido</label>
-										<span id="apellido" class="form-control"></span>
-										<!-- <input type="text" class="form-control" value="apellido"> -->
+										<span id="apellido" class="form-control"><?php echo $apellido?></span>
 									</div>
 								</div>
-								
-								<div class="col-md-6">
+								<div>
 									<div class="form-group">
 										<label>Usuario</label>
-										<span id="user" class="form-control"></span>
-										<!-- <input type="text" class="form-control" value="UI Developer"> -->
+										<span id="usuario" class="form-control"><?php echo $usuario ?></span>
+
 									</div>
 								</div>
-								<div class="col-md-12">
+
+								<div>
 									<div class="form-group">
-										<label>Bio</label>
-										<textarea class="form-control" rows="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
+										<label>Biografía</label>
+										<span id="bio" class="form-control"></span>
+
 									</div>
 								</div>
+
+								<div>
+									<form class="form-group bio" id="form" method="post" action=<?php base_url("Vista_Perfil");?>>
+										<label>Bio</label>
+										<input type="text" class="campo form-control" id="bio" name="biografia" placeholder="Escribe aquí una pequeña biografía" rows="4">
+										<button type="submit" class="btn btn-primary save mt-5" id="save">Guardar</button>
+									</form>
+								</div>
 							</div>
-							<div class="mt-5">
-								<button class="btn btn-primary save" id="save">Guardar</button>
-								<button class="btn btn-light cancel" id="cancel">Cancelar</button>
-							</div>
+							
 						</div>
+
 
 						<!-- apartado donde iran las publicaciones del perfil -->
 						<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-							<h3 class="mb-4">Password Settings</h3>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Old password</label>
-										<input type="password" class="form-control">
-									</div>
-								</div>
 
-							</div>
+							
 								
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>New password</label>
-										<input type="password" class="form-control">
-									</div>
-								</div>
-
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Confirm new password</label>
-										<input type="password" class="form-control">
-									</div>
-								</div>
-							</div>
+							
 
 							<div>
-								<button class="btn btn-primary">Guardar</button>
-								<button class="btn btn-light">Cancelar</button>
+								<button type="submit" class="btn btn-primary">Guardar</button>
+								<button type="submit" class="btn btn-light">Cancelar</button>
 							</div>
 
 						</div>
@@ -230,6 +289,8 @@
 		});
 		});
 	</script>
+
+
 
 	<!--Scripts de js para bootstrap-->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

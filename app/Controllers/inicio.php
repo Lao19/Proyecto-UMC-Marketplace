@@ -8,4 +8,13 @@ class inicio extends BaseController
     {
         return view('inicio');
     }
+    public function perfil(){
+
+        return view('profile');
+    }
+
+    public function perfilUser(){
+
+        return view('profile-user');
+    }
 }

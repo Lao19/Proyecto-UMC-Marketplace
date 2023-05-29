@@ -1,11 +1,11 @@
-<header> 
+<header style="position:sticky; top: 0; z-index: 1000;"> 
   <!--Barra de navegacion-->
-    <nav class="navbar navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-dark bg-dark sticky-top" >
 
       <div class="container-fluid">
 
         <!--titulo y logo de la barra de navegacion-->
-        <a class="navbar-brand title-nav" href="inicio">
+        <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
           <img class="logo-nav" src="public\img\logo-umc.webp" alt="">
           UMC Marketplace
         </a>
@@ -43,28 +43,30 @@
 
               <!--Boton al perfil del usuario-->
               <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Proyecto-Uni/profile">
-                  <i class="fa-solid fa-user fa-xl icon" style="color: #50b9e6;"></i>
-                  Perfil
-              </a>
+              <a class="nav-link" href="http://localhost/Proyecto-Uni/profile/<?php echo session('usuario')['usuario']; ?>">
+    <i class="fa-solid fa-user fa-xl icon" style="color: #50b9e6;"></i>
+    Perfil
+</a>
+
 
               <!--Boton para hacer una publicacion-->
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="http://localhost/Proyecto-Uni/postear">
                   <i class="fa-solid fa-upload fa-xl icon" style="color: #50e66e;"></i>
                   Haz una publicación
                 </a>
               </li>
 
               <!--Boton para cerrar sesion-->
-              <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <li class="nav-item active">
+                 <a class="nav-link" href="<?php echo base_url();?>/sesion/login">
                   <i class="fa-solid fa-right-from-bracket fa-xl icon" style="color: #e65850;"></i>
                   Cerrar sesión
                 </a>
               </li>
 
+              
             </ul>
             
           </div>

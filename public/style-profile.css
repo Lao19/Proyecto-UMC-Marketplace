@@ -48,13 +48,11 @@ body {
   #avatar-section {
     margin-top: 30px;
   }
-  
   #avatar-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
-  
   .avatar {
     width: 80px;
     height: 80px;
@@ -62,21 +60,58 @@ body {
     margin-right: 10px;
     cursor: pointer;
   }
-  
   .avatar:hover {
     border: 2px solid #007bff;
   }
+
+
+/*Estilos del sistema de raiting*/
+.container .star-widget {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.container .star-widget input {
+  display: none;
+}
+.star-widget label {
+  font-size: 35px;
+  color: #444;
   
+  margin-bottom: 5%;
+  transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover label {
+  color: #fd4;
+}
+input:checked ~ label {
+  color: #fd4;
+}
+input#rate-5:checked ~ label {
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+input:checked ~ form {
+  display: block;
+}
+
+/*redondeo de las esquinas*/
+.contenedor {
+  border-radius: 20px;
+}
 
 
+.form-group {
+  margin-bottom: 5%;
+}
 
+.bio {
+  margin-top: 5%;
+}
 
-
-
-
-
-
-
+.nombre-apellido {
+  text-align: center;
+}
 
 
 
@@ -107,17 +142,3 @@ body {
     align-items: center;
     margin: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

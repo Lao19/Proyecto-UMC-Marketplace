@@ -29,57 +29,56 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-
+$routes->get('/', 'Home::index');
 $routes->get('login', 'Sesion::index');
 $routes->post('login', 'Sesion::login');
 // $routes->post('/', 'Sesion::login');
-$routes->get('inicio', 'Sesion::inicio');
 $routes->get('register', 'Sesion::register');
 $routes->post('register', 'Sesion::create');
-$routes->get('profile', 'Perfil::index');
+$routes->get('inicio', 'inicio::Principal');
+$routes->get('profile/(:any)', 'Perfil::account/$1');
+$routes->get('profile-user/(:any)', 'Perfil::public/$1');
+//$routes->get('profile/(:segment)', 'Perfil::account/$1', ['as' => 'perfil']);
+
+//$routes->get('profile', 'Perfil::account', ['as' => 'perfil']);
+// logout
+$routes->get('/sesion/login', 'Sesion::logout');
+//Postear publicacion
+$routes->get('postear', 'Publicar::index');
+//para las publicaciones
+$routes->get('post', 'Publicaciones::post');
 
 
 
-//Hay que buscar en algun punto de entender esto, porque esos filter son importantes
-// $routes->group('Views', static function ($routes) {
-//     $routes->group('',['filter'=>'AlreadyLoggedIn'], static function ($routes) {
-//         $routes->get('index', 'sesion::index', ['as' => 'index']);
-//         $routes->get('register', 'sesion::register', ['as' => 'register']);
-//         $routes->post('create', 'sesion::create', ['as' => 'create']);
-//         $routes->post('check', 'sesion::check', ['as' => 'check']);   
-//     });
-    
-//     $routes->get('logout', 'sesion::logout', ['as' => 'logout']);
-    
-// });
 
-// $routes->group('user', ['filter'=>'AuthCheck'], static function ($routes) {
-//     $routes->get('inicio', 'inicio::Principal', ['as' => 'inicio']);
-// });
 
-//ultimos cambios que hice
-// $routes->get('/', 'sesion::index');
-// $routes->post('/', 'sesion::check');
-// $routes->get('sesion', 'sesion::check');
-// $routes->get('/inicio', 'inicio::Principal');
-// $routes->get('/register', 'sesion::register');
-// $routes->post('/register', 'sesion::create');
 
-//las que teniamos mas algunos cambios
-// $routes->get('/', 'sesion::index');
-// $routes->get('/inicio', 'inicio::Principal');
-// $routes->get('/register', 'sesion::register');//revisar si esta funcionando
-//  $routes->post('register/create', 'sesion::create'); //esta la hiciste pero no funciona, la puedes borrar
-// $routes->post('register', 'sesion::create'); //ruta que hizo funcionar el create
-// $routes->get('index', 'sesion::check'); probando
-//  $routes->get('/index', 'sesion::index');probando
 
-//AGREGADO POR ISAAC
-// $routes->get('/register', 'register::registro');
-// $routes->post('register', 'register::registrar');
-//estas rutas llaman al controlador register (que esta en desuso) y a su metodo registrar que se encontraba en el modelo, 
-//necesitamos que se use el modelo session y el metodo create, ya que son los que tienen los nuevos cambios
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*esta ruta jode mucho, porque para acceder a la vista usuario es escribiendo por url
+entonces al escribir cualquier cosa, por consiguiente cree que es un usuario
+y tira error, por lo tanto para solucionarno me di cuenta (por chatgpt)
+que las rutas tienen efecto cascada, asi que esta ruta va de ultimo por fines practicos
+*/
+//$routes->get('/(:any)', 'Perfil::public/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

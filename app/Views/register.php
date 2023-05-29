@@ -41,7 +41,7 @@
                 <!--Titulo del formulario de registro-->
                 <h1 class="title-registro">¡Regístrate!</h1>
                 
-                <form class="register-form" id="form" method="post" action="register">
+                <form class="register-form" id="form" method="post" action=<?php base_url("register");?>>
 
                     <!--Campos del formulario de registro-->
                 
@@ -215,7 +215,7 @@
 
     </div>
 
-    <!-- alertas pt 2372792 -->
+    <!-- alertas de exito y fallo -->
     <?php if(session()->getFlashdata('Exito')): ?>
     <script>
         Swal.fire({

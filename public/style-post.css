@@ -1,0 +1,139 @@
+/* Se colocan estas especificaciones para resetear todos los valores por 
+defecto del navegador*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*Fondo de la pagina*/
+body {
+  font-family: 'Carter One', cursive;
+  background-image: url(img/fondo-proyecto-inicio.webp);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/*Estilos del titulo y logo de la barra de navegacion*/
+.title-nav {
+  padding-left: 10px;
+  font-size: x-large;
+}
+.logo-nav {
+  width: 50px;
+  height: 50px;
+}
+
+/*Estilos de la caja de busqueda y boton de busqueda de la barra de navegacion*/
+.busqueda {
+  margin-left: auto;
+}
+.btn-busqueda {
+  background-color: #E6DA50;
+}
+.buscar-logo {
+  width: 30px;
+  height: 30px;
+}
+
+/*Estilos del menu desplegable de la barra de navegacion*/
+.icon {
+  margin-right: 5px;
+}
+
+/*estilos del carrusel de imagenes*/
+.carousel-inner .carousel-item img {
+  max-width: 100%; 
+  max-height: 400px; 
+  object-fit: contain;
+  padding: 5%;
+}
+
+.carousel {
+  background-color: #e1e1e0;
+  border-radius: 10px;
+  margin: 5%;
+  margin-top: 2%;
+}
+
+.tab-pane {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.product-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+  margin-bottom: 20px;
+}
+
+.precio {
+  font-size: 24px;
+  font-weight: bold;
+  color: #7692ff;
+}
+
+.descripcion {
+  color: #666;
+  line-height: 1.5;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
+.tipo-producto {
+  margin-top: 20px;
+  color: #666;
+}
+
+.telefono {
+  color:#95a9f9 ;
+  margin-bottom: 5px;
+}
+
+/* .precio {
+ 
+  font-size: 1.5rem;
+  color: #7692ff;
+}
+
+.descripcion{
+  
+} */
+
+/* .product-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .product-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .contact-info {
+    margin-top: 10px;
+  } */
