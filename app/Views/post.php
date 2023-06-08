@@ -176,9 +176,25 @@
                   
                   <div class="product-info">
 
-                  <h6>Nombre del vendedor</h6>
+                    <h6>
+                      Nombre del vendedor
+                      <div class="ver">
+                      <button id="verperfil" class="ver-perfil">
+                        <i class="fa-solid fa-users-viewfinder fa-xl" style="color: #95a9f9;"></i>
+                        Ver perfil
+                      </button>
+                      
+                    </div>
+                    </h6>
                    
                     <h5 class="precio"> USD 50$  </h5>
+
+                    <div class="like">
+                      <button id="likeButton" class="like-button"><i class="fa-solid fa-thumbs-up fa-xl" style="color: #95a9f9;"></i></button>
+                      <span id="likeCount">0</span>
+                    </div>
+                    
+
 
                     <p class="descripcion"> Descripción del producto Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
@@ -214,13 +230,25 @@
 	</section>
 
 
+	<!--Pie de pagina-->
+    <footer class="footer mb-0">
+      <small>&copy; 2023 <b>Team LICA</b> - Todos los Derechos Reservados.
+        <br>
+        <i class="fa-solid fa-handshake fa-xl" ></i>
+      </small>
+    </footer>
 
-	<!--Llamado al archivo de footer-->
-	<?php
-  	include_once "footer.php";
-  ?>
 
+  <script>
+    var likeButton = document.getElementById("likeButton");
+    var likeCount = document.getElementById("likeCount");
+    var count = 0;
 
+    likeButton.addEventListener("click", function() {
+      count++;
+      likeCount.textContent = count;
+    });
+  </script>
 
 
 

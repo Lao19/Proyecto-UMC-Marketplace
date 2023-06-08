@@ -42,6 +42,16 @@
                 <h1 class="title-registro">¡Regístrate!</h1>
                 
                 <form class="register-form" id="form" method="post" action=<?php base_url("register");?>>
+                <!-- Mostrar errores de validación -->
+                <?php if (session()->has('errors')) : ?>
+                    <div class="alert alert-danger">
+                        <ul>
+                            <?php foreach (session('errors') as $error) : ?>
+                                <li><?php echo $error ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif;?>
 
                     <!--Campos del formulario de registro-->
                 
@@ -72,10 +82,31 @@
                         </div>
                     </div>
 
-                        <input class="campo" id="password" name="password" type="password" placeholder="Contraseña" aria-labelledby="passwordHelpBlock" required>
-                        <span id="passwordHelpInline" class="form-text" style="margin-left: 12%;">
-                            Debe ser entre 8-20 caracteres de largo.
-                        </span>
+                    <input class="campo" id="password" name="password" type="password" placeholder="Contraseña" aria-labelledby="passwordHelpBlock" required>
+                    <span id="passwordHelpInline" class="form-text" style="margin-left: 12%;">
+                        Debe ser entre 8-20 caracteres de largo.
+                    </span>
+
+                    <input class="campo" id="telefono" name="telefono" type="number" placeholder="Número de contácto" required>
+                    <div class="boton-telefono">
+                        <p>
+                            <button class="btn btn-usuario" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                            <i class="fa-solid fa-circle-info fa-xl" style="color: #ffffff;"></i>
+                            ¿Por qué necesitamos un número de contácto?
+                            </button>
+                        </p>
+
+                        <div class="collapse " id="collapseExample2">
+                            <!--Parrafo con la info de como crear el usuario-->
+                            <div class="card card-body politicas-parrafo">
+                            Es necesario tu número de contácto para que quienes vean los productos que publicas 
+                            puedan tener una forma de comunicarse contigo y realizar la compra.
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <textarea class="campo bio" id="bio" name="biografia" placeholder=" Escribe aquí una pequeña biografía (opcional)" style="height: 150px; overflow: auto; margin-bottom: 20px; word-wrap: break-word;"></textarea>
 
 
                     <!--Texto para pedir registro de inscripcion o trabajo-->

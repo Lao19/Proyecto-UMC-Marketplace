@@ -19,7 +19,7 @@
     <script src="https://kit.fontawesome.com/3af059f722.js" crossorigin="anonymous"></script>
 
     <!--Hoja de estilos css-->
-    <link rel="stylesheet" href="<?php base_url();?>public\style-profile.css">
+    <link rel="stylesheet" href="<?php base_url();?>../public\style-profile.css">
 
 	<!-- link al jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -30,10 +30,85 @@
 
 <body>
 
-    <!--Llamado al archivo header que contiene la barra de navegacion-->
-    <?php
-        include_once "header.php";
-    ?>
+<header style="position:sticky; top: 0; z-index: 1000;"> 
+  <!--Barra de navegacion-->
+    <nav class="navbar navbar-dark bg-dark sticky-top" >
+
+      <div class="container-fluid">
+
+        <!--titulo y logo de la barra de navegacion-->
+        <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
+          <img class="logo-nav" src="../public\img\logo-umc.webp" alt="">
+          UMC Marketplace
+        </a>
+
+        <!--Barra y boton de busqueda-->
+        <nav class="navbar bg-dark busqueda ">
+          <div class="container-fluid">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-light btn-busqueda" type="submit">
+                <img class="buscar-logo" src="../public\img\busqueda.svg" alt="">
+              </button>
+            </form>
+          </div>
+        </nav>
+
+        <!--Boton del menu desplegable a la derecha-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars fa-lg" style="color: #e6da50;"></i>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+
+          <!--Titulo del menu desplegable-->
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+              <i class="fa-solid fa-bars fa-2xl icon" style="color: #e6da50;"></i>
+              Menú
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <!--Lista de botones del menu desplegable-->
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+              <!--Boton al perfil del usuario-->
+              <li class="nav-item">
+              <a class="nav-link" href="http://localhost/Proyecto-Uni/profile/<?php echo session('usuario')['usuario']; ?>">
+    <i class="fa-solid fa-user fa-xl icon" style="color: #50b9e6;"></i>
+    Perfil
+</a>
+
+
+              <!--Boton para hacer una publicacion-->
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="http://localhost/Proyecto-Uni/postear">
+                  <i class="fa-solid fa-upload fa-xl icon" style="color: #50e66e;"></i>
+                  Haz una publicación
+                </a>
+              </li>
+
+              <!--Boton para cerrar sesion-->
+                <li class="nav-item active">
+                 <a class="nav-link" href="<?php echo base_url();?>/sesion/login">
+                  <i class="fa-solid fa-right-from-bracket fa-xl icon" style="color: #e65850;"></i>
+                  Cerrar sesión
+                </a>
+              </li>
+
+              
+            </ul>
+            
+          </div>
+
+        </div>
+
+      </div>
+
+    </nav>
+  </header> 
 
 
 	<!--Cuadro de ajustes del perfil-->
@@ -53,7 +128,7 @@
 							<div id="profile-image-section">
 								<!-- <h3>Foto de Perfil:</h3> -->
                                 
-								<img style="width: 200px;" src="<?php base_url(); ?>public\img\user-base.webp" alt="Foto de Perfil" id="profile-image">
+								<img style="width: 200px;" src="<?php base_url(); ?>../public\img\user-base.webp" alt="Foto de Perfil" id="profile-image">
 							</div>
 
                             <!-- Esto en teoria no hace nada, pero si lo quitan
@@ -70,7 +145,7 @@
 
                         <!-- Sistema de raiting -->
                         <!-- Hay que buscar una manera de agregar esto a la base de datos de cada usuario -->
-                        <div class="star-widget text-center" style="justify-content: center;">
+                        <!-- <div class="star-widget text-center" style="justify-content: center;">
                             <input type="radio" name="rate" id="rate-5">
                             <label for="rate-5" class="fas fa-star"></label>
 
@@ -85,16 +160,15 @@
 
                             <input type="radio" name="rate" id="rate-1">
                             <label for="rate-1" class="fas fa-star"></label>
-                        </div>
+                        </div> -->
 
                         <!-- Pequeña bio del usuario -->
                         <div class="form-group" style="margin-left: 5%; margin-right: 5%; margin-bottom: 5%;"">
-							
-							<span id="nombre" class="form-control" style="width: 100%; overflow: hidden;">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Distinctio minus quam repellat repellendus fuga fugiat voluptate, 
-                                iste vero facilis! Fugit quisquam optio commodi voluptate veritatis at ullam vitae tenetur cupiditate.
-                            </span>
+                        
+                        <span id="nombre" class="form-control" style="width: 400px; height: 150px; display: inline-block; overflow: auto; word-wrap: break-word;">
+                          <?php echo $usuario['biografia']; ?>
+                        </span>
+
 						</div>
 
                         <!-- En esta seccion iria el promedio del vendedor, solo que no lo pongo porque no
@@ -119,74 +193,9 @@
                             <div class="album">
                                 
                                 <div class="row row-cols-1 row-cols-sm-3 g-3" style="max-width: 100%;">
-                                    <!-- Aquí van las publicaciones -->
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                        <img class="card-img-top" src="..." alt="Imagen de la publicación">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Título de la publicación</h5>
-                                            <p class="card-text text-truncate">Descripción de la publicación que se ajusta a diferentes tamaños de pantalla</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                            </div>
-                                            <small class="text-muted">9 mins</small>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                        <img class="card-img-top" src="..." alt="Imagen de la publicación">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Título de la publicación</h5>
-                                            <p class="card-text text-truncate">Descripción de la publicación que se ajusta a diferentes tamaños de pantalla</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                            </div>
-                                            <small class="text-muted">9 mins</small>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                        <img class="card-img-top" src="..." alt="Imagen de la publicación">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Título de la publicación</h5>
-                                            <p class="card-text text-truncate">Descripción de la publicación que se ajusta a diferentes tamaños de pantalla</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                            </div>
-                                            <small class="text-muted">9 mins</small>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                        <img class="card-img-top" src="..." alt="Imagen de la publicación">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Título de la publicación</h5>
-                                            <p class="card-text text-truncate">Descripción de la publicación que se ajusta a diferentes tamaños de pantalla</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                            </div>
-                                            <small class="text-muted">9 mins</small>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
+                                <?php
+                                  include_once "post-card.php";
+                                ?>
 
                                 </div>
 
@@ -208,25 +217,25 @@
   	?>
 
     <!-- Script para el sistema de raiting -->
-    <script>
-        const stars = document.querySelectorAll('.star-widget input');
+    <!-- <script>
+        // const stars = document.querySelectorAll('.star-widget input');
 
-        stars.forEach((star, index) => {
-        star.addEventListener('click', () => {
-            const rating = index + 1;
+        // stars.forEach((star, index) => {
+        // star.addEventListener('click', () => {
+        //     const rating = index + 1;
 
-            stars.forEach((star, index) => {
-            if (index < rating) {
-                star.checked = true;
-            } else {
-                star.checked = false;
-            }
-            });
-        });
-        });
+        //     stars.forEach((star, index) => {
+        //     if (index < rating) {
+        //         star.checked = true;
+        //     } else {
+        //         star.checked = false;
+        //     }
+        //     });
+        // });
+        // });
 
 
-    </script>
+    </script> -->
 
 
 	<!--Scripts de js para bootstrap-->

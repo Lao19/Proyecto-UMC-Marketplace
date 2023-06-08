@@ -43,20 +43,22 @@
 
               <!--Boton al perfil del usuario-->
               <li class="nav-item">
-              <a class="nav-link" href="http://localhost/Proyecto-Uni/profile/<?php echo session('usuario')['usuario']; ?>">
-    <i class="fa-solid fa-user fa-xl icon" style="color: #50b9e6;"></i>
-    Perfil
-</a>
-
+                <a class="nav-link" href="http://localhost/Proyecto-Uni/profile/<?php echo session('usuario')['usuario']; ?>">
+                  <i class="fa-solid fa-user fa-xl icon" style="color: #50b9e6;"></i>
+                  Perfil
+                </a>
+              </li>
 
               <!--Boton para hacer una publicacion-->
-              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="http://localhost/Proyecto-Uni/postear">
                   <i class="fa-solid fa-upload fa-xl icon" style="color: #50e66e;"></i>
                   Haz una publicación
                 </a>
               </li>
+
+           
+
 
               <!--Boton para cerrar sesion-->
                 <li class="nav-item active">

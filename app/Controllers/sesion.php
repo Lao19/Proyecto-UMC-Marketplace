@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
+use App\Models\PerfilesModel;
 
 class Sesion extends BaseController
 {
@@ -40,9 +41,9 @@ class Sesion extends BaseController
             'cedula' => [
                 'rules'  => 'required|min_length[7]|max_length[8]|is_unique[usuarios.cedula]|numeric',
                 'errors' => [
-                    'required' => 'Se necesita tu cédula.',
                     'is_unique' => 'Esta cédula ya ha sido elegida.',
                     'numeric' => 'La cédula debe ser un número.',
+                    'min_length' => 'El campo cédula debe tener al menos 7 caracteres.',
                 ],
             ],
 
@@ -63,11 +64,23 @@ class Sesion extends BaseController
                     'max_length' => 'La contraseña no debe tener mas de 20 caracteres.',
                 ],
             ],
+            'telefono' => [
+                'rules' => 'required|exact_length[11]|is_unique[usuarios.telefono]|',
+                'errors' => [
+                    'exact_length' => 'El número de teléfono debe tener 11 dígitos',
+                    'is_unique' => 'Este número de teléfono ya ha sido elegido.',
+                ],
+            ],
+
+            
+            
         ]);
+
+        
 
         if(!$validation){
 
-            return  redirect()->to(base_url('register'))->with('validation', $this->validator)->withInput();
+            return redirect()->to(base_url('register'))->with('errors', $this->validator->getErrors())->withInput();
 
         }else{
             //Registro en la database
@@ -76,6 +89,8 @@ class Sesion extends BaseController
             $cedula = $this->request->getPost('cedula');
             $usuario = $this->request->getPost('usuario');
             $password = $this->request->getPost('password');
+            $telefono = $this->request->getPost('telefono');
+            $biografia = $this->request->getPost('biografia');
 
             $data = [
                'nombre'=>$nombre,
@@ -83,16 +98,25 @@ class Sesion extends BaseController
                 'cedula'=>$cedula,
                 'usuario'=>$usuario,
                'password'=> password_hash($password, PASSWORD_BCRYPT),
+               //agregue esta linea para la variable del telefono 
+               'telefono'=>$telefono,
+               'biografia'=>$biografia,
             ];
 
             $UsuarioModel = new UsuarioModel();
             $query = $UsuarioModel->insert($data);
             if ($query) {
+                // Obtener el ID del usuario recién insertado
+                $id_usuario = $UsuarioModel->insertID();
+        
+                // Crear un registro en la tabla 'perfiles' relacionado con el usuario
+                $PerfilModel = new PerfilesModel();
+                $PerfilModel->insert(array('id_usuarios' => $id_usuario));
+        
                 session()->setFlashdata('Exito', 'Felicitaciones. Ya te encuentras registrado.');
-                return  redirect()->to(base_url('register'));
+                return redirect()->to(base_url('register'));
             } else {
-                return redirect()->to(base_url('register'))->with('Error', 'Procura que el usuario tenga la misma cedula registrada! Recuerda también que la contraseña debe ser mínimo 8 dígitos y máximo 20');// session()->setFlashdata('Exito', 'Felicitaciones. Ya te encuentras registrado.');
-                // return redirect()->to('/register')->with('Exito', 'Felicitaciones. Ya te encuentras registrado.');
+                return redirect()->to(base_url('register'))->with('Error', 'Procura que el usuario tenga la misma cedula registrada! Recuerda también que la contraseña debe ser mínimo 8 dígitos y máximo 20');
             }
             
         }
@@ -129,6 +153,11 @@ class Sesion extends BaseController
         return redirect()->to('/sesion/login');
 
     }
+
+
+
+
+    
 
 // public function login()
 //     {

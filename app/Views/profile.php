@@ -34,6 +34,13 @@
     <nav class="navbar navbar-dark bg-dark sticky-top" >
 
       <div class="container-fluid">
+	  <!-- <h1>Datos de la sesión:</h1>
+<pre>
+    <?php
+        $sessionData = session()->get();
+        print_r($sessionData);
+    ?>
+</pre> -->
 
         <!--titulo y logo de la barra de navegacion-->
         <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
@@ -125,9 +132,10 @@
 							
 							<div class="img-circle text-center mb-3">
 
+							<form id="profile-form" action="<?php echo base_url('Avatares/guardarActualizarAvatar'); ?>" method="POST">
 								<div id="profile-image-section">
 									<h3>Foto de Perfil:</h3>
-									<img src="default-avatar.jpg" alt="Foto de Perfil" id="profile-image">
+									<img src="../public/img/user-base.webp" alt="Foto de Perfil" style="width:320px; height:320px;" id="profile-image">
 								</div>
 
 								<div class="dropdown">
@@ -138,12 +146,18 @@
 
 									<div id="avatar-section" class="dropdown-menu text-center">
 										<ul id="avatar-list">
-											<li><img src="public\img\mujer-1.svg" alt="Avatar 1" class="avatar"></li>
-											<li><img src="public\img\mujer-2.svg" alt="Avatar 2" class="avatar"></li>
-											<li><img src="public\img\hombre-1.svg" alt="Avatar 3" class="avatar"></li>
-											<li><img src="public\img\hombre-2.svg" alt="Avatar 4" class="avatar"></li>
-										</ul>
+											<li><img src="../public/img/avatares/mujer-1.svg" alt="Avatar 1" class="avatar" data-avatar-id="1"></li>
+											<li><img src="../public/img/avatares/mujer-2.svg" alt="Avatar 2" class="avatar" data-avatar-id="2"></li>
+											<li><img src="../public/img/avatares/hombre-1.svg" alt="Avatar 3" class="avatar" data-avatar-id="3"></li>
+											<li><img src="../public/img/avatares/hombre-2.svg" alt="Avatar 4" class="avatar" data-avatar-id="4"></li>
+										</ul> 
 									</div>
+
+									<input type="hidden" id="avatar-url" name="avatar-url" value="">
+        							<button type="submit" class="btn btn-primary">Guardar</button>
+							</form>
+
+								
 								
 							</div>
 					
@@ -203,38 +217,72 @@
 
 									</div>
 								</div>
-
+								<!-- agregue este div para mostrar el numero de telefono-->
 								<div>
 									<div class="form-group">
-										<label>Biografía</label>
-										<span id="bio" class="form-control"></span>
+										<label>Telefono</label>
+										<span id="telefono" class="form-control"><?php echo $telefono ?></span>
 
 									</div>
 								</div>
 
 								<div>
-									<form class="form-group bio" id="form" method="post" action=<?php base_url("Vista_Perfil");?>>
-										<label>Bio</label>
-										<input type="text" class="campo form-control" id="bio" name="biografia" placeholder="Escribe aquí una pequeña biografía" rows="4">
-										<button type="submit" class="btn btn-primary save mt-5" id="save">Guardar</button>
-									</form>
+									
 								</div>
+
+								<div>
+  <form class="form-group bio" id="form-biografia" method="post" action="<?php echo base_url('Perfil/guardar_biografia'); ?>">
+    <label>Bio</label>
+    <textarea style="height: 150px; overflow:scroll overflow-x:hidden" class="campo form-control" id="biografia" name="biografia" placeholder="Escribe aquí una pequeña biografía"><?php echo $biografia; ?></textarea>
+
+    <button type="submit" class="btn btn-primary save mt-5" id="save-biografia">Guardar</button>
+  </form>
+</div>
+
+<div id="mensaje-exito" style="display: none;" class="alert alert-success">Biografía actualizada correctamente</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#form-biografia').submit(function(e) {
+      e.preventDefault(); // Evitar el envío del formulario
+
+      var biografia = $('#biografia').val();
+
+      $.ajax({
+        url: $(this).attr('action'),
+        type: $(this).attr('method'),
+        data: { biografia: biografia },
+        success: function(response) {
+          // Actualizar la biografía en la página
+          $('#biografia').val(biografia);
+          $('#mensaje-exito').fadeIn().delay(3000).fadeOut();
+        },
+        error: function(xhr, status, error) {
+          // Manejar errores si es necesario
+        }
+      });
+    });
+  });
+</script>
+
+
+
 							</div>
 							
 						</div>
 
 
 						<!-- apartado donde iran las publicaciones del perfil -->
-						<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+						<div class="tab-pane fade" id="publication" role="tabpanel" aria-labelledby="publication-tab">
 
 							
-								
+						<?php
+            				include_once "post-card.php";
+          				?>
 							
 
-							<div>
-								<button type="submit" class="btn btn-primary">Guardar</button>
-								<button type="submit" class="btn btn-light">Cancelar</button>
-							</div>
+							
 
 						</div>
 
@@ -256,18 +304,51 @@
 
 	<!-- script para la selecion del avatar de foto de perfil -->
 	<script>
-		var avatarList = document.getElementById('avatar-list');
-		var avatarItems = avatarList.getElementsByTagName('li');
-		var profileImage = document.getElementById('profile-image');
+var avatarList = document.getElementById('avatar-list');
+var avatarItems = avatarList.getElementsByTagName('li');
+var profileImage = document.getElementById('profile-image');
+var avatarUrlInput = document.getElementById('avatar-url');
 
-		for (var i = 0; i < avatarItems.length; i++) {
-			avatarItems[i].addEventListener('click', function() {
-			var avatarSrc = this.querySelector('img').getAttribute('src');
-			profileImage.setAttribute('src', avatarSrc);
-			});
-		}
+for (var i = 0; i < avatarItems.length; i++) {
+  var avatarImg = avatarItems[i].querySelector('img');
+  var avatarId = avatarImg.getAttribute('data-avatar-id'); // Obtener el ID del avatar
 
-	</script>
+  avatarItems[i].addEventListener('click', function() {
+    var avatarSrc = this.querySelector('img').getAttribute('src');
+    profileImage.setAttribute('src', avatarSrc);
+    avatarUrlInput.value = avatarSrc; // Almacena la URL del avatar en el campo oculto
+
+    // Guardar o actualizar el avatar en la base de datos
+    guardarActualizarAvatar(avatarId, avatarSrc);
+  });
+}
+
+function guardarActualizarAvatar(avatarId, avatarSrc) {
+//   var usuarioId = obtenerUsuarioId(); // Obtener el ID de usuario desde la sesión
+
+  // Enviar la solicitud al controlador para guardar o actualizar el avatar
+  var formData = new FormData();
+//   formData.append('usuarioId', usuarioId);
+  formData.append('avatarId', avatarId);
+  formData.append('avatarSrc', avatarSrc);
+
+  fetch('<?php echo base_url('Avatares/guardarActualizarAvatar'); ?>', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Avatar guardado o actualizado:', data);
+    // Lógica adicional después de guardar o actualizar el avatar
+  })
+  .catch(error => {
+    console.error('Error al guardar o actualizar el avatar:', error);
+  });
+}
+
+</script>
+
+
 
 
 	<!-- script para cambiar de botones entre cuenta y publicaciones -->

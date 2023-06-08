@@ -37,6 +37,15 @@ $routes->get('register', 'Sesion::register');
 $routes->post('register', 'Sesion::create');
 $routes->get('inicio', 'inicio::Principal');
 $routes->get('profile/(:any)', 'Perfil::account/$1');
+//ruta para q actualice la biografia de mierda esa
+$routes->post('Perfil/guardar_biografia', 'Perfil::guardar_biografia');
+
+//ruta pa q se guarden/actualicen los avatares
+$routes->post('Avatares/guardarActualizarAvatar', 'Avatares::guardarActualizarAvatar');
+// $routes->get('profile', 'Avatares::VistaPerfil2/$1');
+
+
+
 $routes->get('profile-user/(:any)', 'Perfil::public/$1');
 //$routes->get('profile/(:segment)', 'Perfil::account/$1', ['as' => 'perfil']);
 

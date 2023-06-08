@@ -35,7 +35,7 @@
 </style>
 
 <div class="card " style="width: 18rem;">
-  <img src="public\img\raton.webp" class="card-img-top pic" alt="...">
+  <img src=<?php echo base_url('public/img/raton.webp'); ?> class="card-img-top pic" alt="...">
 
   <div class="card-body">
 

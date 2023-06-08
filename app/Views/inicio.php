@@ -84,14 +84,14 @@
 
   </main>
 
-
+  <?php
+    include_once "footer.php";
+  ?>
 
 
   
    <!--Llamado al archivo footer-->
-    <?php
-      include_once"footer.php";
-    ?>
+    
 
 
     <!--Scripts de js para bootstrap-->

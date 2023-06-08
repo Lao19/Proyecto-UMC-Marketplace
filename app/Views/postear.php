@@ -71,14 +71,6 @@
           </div>
 
           <div class="campos-producto">
-            <label for="telefono-producto" class="label">Número de contacto:</label>
-            <div class="campo-precio" style="display: flex; align-items: center;">
-              <input class="precio-producto" id="precio-producto" name="precio-producto" type="number" placeholder="Ej: 0424xxxxxxx" required>
-              <i class="fa-solid fa-mobile-screen fa-xl telefono" style="color: #ffffff;"></i>
-            </div>
-          </div>
-
-          <div class="campos-producto">
             <label for="categoria-producto" class="label">Tipo de producto:</label>
             <select class="form-select campo" aria-label="Default select example">
               <option selected class="selecionar">Selecciona una categoría:</option>

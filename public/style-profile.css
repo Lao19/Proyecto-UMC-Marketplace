@@ -18,6 +18,35 @@ body {
 
 /*Estilos del titulo y logo de la barra de navegacion*/
 .title-nav {
+  padding-left: 10px;
+  font-size: x-large;
+}
+.logo-nav {
+  width: 50px;
+  height: 50px;
+}
+
+/*Estilos de la caja de busqueda y boton de busqueda de la barra de navegacion*/
+.busqueda {
+  margin-left: auto;
+}
+.btn-busqueda {
+  background-color: #E6DA50;
+}
+.buscar-logo {
+  width: 30px;
+  height: 30px;
+}
+
+
+/*Estilos del menu desplegable de la barra de navegacion*/
+.icon {
+  margin-right: 5px;
+}
+
+
+/*Estilos del titulo y logo de la barra de navegacion*/
+.title-nav {
     padding-left: 10px;
     font-size: x-large;
 }
@@ -107,6 +136,7 @@ input:checked ~ form {
 
 .bio {
   margin-top: 5%;
+  
 }
 
 .nombre-apellido {
@@ -129,8 +159,8 @@ input:checked ~ form {
 
 
 
-/*Estilos el pie de pagina*/
-.footer{
+  /*Estilos el pie de pagina*/
+  .footer{
     position: relative;
     bottom: 0;
     padding-bottom: 1px;
@@ -140,5 +170,5 @@ input:checked ~ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-}
+    text-align: center;
+  }
