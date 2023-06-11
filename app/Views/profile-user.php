@@ -128,7 +128,7 @@
 							<div id="profile-image-section">
 								<!-- <h3>Foto de Perfil:</h3> -->
                                 
-								<img style="width: 200px;" src="<?php base_url(); ?>../public\img\user-base.webp" alt="Foto de Perfil" id="profile-image">
+								<img style="width: 200px;" src="<?php echo $avatarSrc . '?t=' . time(); ?>" alt="Foto de Perfil" id="profile-image">
 							</div>
 
                             <!-- Esto en teoria no hace nada, pero si lo quitan

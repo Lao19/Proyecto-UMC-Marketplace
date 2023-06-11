@@ -41,7 +41,7 @@ $routes->get('profile/(:any)', 'Perfil::account/$1');
 $routes->post('Perfil/guardar_biografia', 'Perfil::guardar_biografia');
 
 //ruta pa q se guarden/actualicen los avatares
-$routes->post('Avatares/guardarActualizarAvatar', 'Avatares::guardarActualizarAvatar');
+$routes->post('Perfil/guardarActualizarAvatar', 'Perfil::guardarActualizarAvatar');
 // $routes->get('profile', 'Avatares::VistaPerfil2/$1');
 
 

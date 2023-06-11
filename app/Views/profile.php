@@ -8,7 +8,7 @@
 
     <!---Libreria Bootstrap--->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!---link de las fuentes a utilizar--->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,10 +130,10 @@
     <!-- foto de perfil escogiendo avatares -->
     <div class="p-4">
         <div class="img-circle text-center mb-3">
-            <form id="profile-form" method="POST">
+            <form id="profile-form" action="<?php echo base_url('Perfil/guardarActualizarAvatar'); ?>" method="POST">
                 <div id="profile-image-section">
-                    <h3>Foto de Perfil:</h3>
-                    <img src="../public/img/user-base.webp" alt="Foto de Perfil" style="width:320px; height:320px;" id="profile-image">
+                    <h3>Foto de Perfil:</h3> 
+                    <img src="<?php echo $avatarSrc . '?t=' . time(); ?>" alt="Foto de Perfil" style="width:320px; height:320px;" id="profile-image">
                 </div>
 
                 <div class="dropdown">
@@ -150,16 +150,17 @@
                         </ul>
                     </div>
 
-                    <input type="hidden" id="avatarId" name="avatarId" value="">
-                    <input type="hidden" id="avatarSrc" name="avatarSrc" value="">
-                    <button type="button" class="btn btn-primary" id="guardarAvatar">Guardar</button>
-             
+                      <input type="hidden" id="avatarId" name="avatarId" value="">
+                      <input type="hidden" id="avatarSrc" name="avatarSrc" value="">
+                    <div>
+                      <button type="button" class="btn btn-primary" id="guardarAvatar">Guardar</button>
+                    </div>
             </form>
        
    
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('.avatar').click(function() {
@@ -173,10 +174,11 @@
         $('#guardarAvatar').click(function() {
             var avatarId = $('#avatarId').val();
             var avatarSrc = $('#avatarSrc').val();
+            guardarActualizarAvatar(avatarId, avatarSrc);
 
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url("Avatares/guardarActualizarAvatar"); ?>',
+                url: '<?php echo base_url("Perfil/guardarActualizarAvatar"); ?>', // Eliminamos los comentarios de PHP
                 data: {
                     avatarId: avatarId,
                     avatarSrc: avatarSrc
@@ -336,36 +338,31 @@
 
 
 	<!-- script para la selecion del avatar de foto de perfil -->
-	<script>
+  <script>
 var avatarList = document.getElementById('avatar-list');
 var avatarItems = avatarList.getElementsByTagName('li');
 var profileImage = document.getElementById('profile-image');
-var avatarUrlInput = document.getElementById('avatar-url');
+var avatarUrlInput = document.getElementById('avatarSrc'); // Cambiamos el ID del input
 
 for (var i = 0; i < avatarItems.length; i++) {
   var avatarImg = avatarItems[i].querySelector('img');
-  var avatarId = avatarImg.getAttribute('data-avatar-id'); // Obtener el ID del avatar
+  var avatarId = avatarImg.getAttribute('data-avatar-id');
 
   avatarItems[i].addEventListener('click', function() {
     var avatarSrc = this.querySelector('img').getAttribute('src');
     profileImage.setAttribute('src', avatarSrc);
-    avatarUrlInput.value = avatarSrc; // Almacena la URL del avatar en el campo oculto
+    avatarUrlInput.value = avatarSrc;
 
-    // Guardar o actualizar el avatar en la base de datos
     guardarActualizarAvatar(avatarId, avatarSrc);
   });
 }
 
 function guardarActualizarAvatar(avatarId, avatarSrc) {
-//   var usuarioId = obtenerUsuarioId(); // Obtener el ID de usuario desde la sesión
-
-  // Enviar la solicitud al controlador para guardar o actualizar el avatar
   var formData = new FormData();
-//   formData.append('usuarioId', usuarioId);
   formData.append('avatarId', avatarId);
   formData.append('avatarSrc', avatarSrc);
 
-  fetch('<?php echo base_url('Avatares/guardarActualizarAvatar'); ?>', {
+  fetch('<?php echo base_url("Perfil/guardarActualizarAvatar"); ?>', {
     method: 'POST',
     body: formData
   })
