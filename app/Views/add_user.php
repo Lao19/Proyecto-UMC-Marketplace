@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Codeigniter 4 CRUD (Create, Read, Update and Delete) with Bootstrap and Datatables</title>
+  <title>CRUD</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <style>
     .error {
@@ -12,40 +12,45 @@
       color: red;
     }
   </style>
+
+<link rel="stylesheet" href="<?php base_url();?>../public\admin.css">
 </head>
 <body>
 <div class="container">
-    <p><h1>Codeigniter 4 CRUD (Create, Read, Update and Delete) with Bootstrap</h1></p>
+    <p><h1>CREATE</h1></p>
+
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
             <form method="post" id="add_create" name="add_create" action="<?= site_url('/submit-form') ?>">
               <div class="form-group">
-                <label>nombre</label>
+                <label>Nombre</label>
                 <input type="text" name="nombre" class="form-control">
               </div>
               <div class="form-group">
-                <label>apellido</label>
+                <label>Apellido</label>
                 <input type="text" name="apellido" class="form-control">
               </div>
               <div class="form-group">
-                <label>cedula</label>
+                <label>Cedula</label>
                 <input type="text" name="cedula" class="form-control">
               </div>
               <div class="form-group">
-                <label>usuario</label>
+                <label>Usuario</label>
                 <input type="text" name="usuario" class="form-control">
               </div>
               <div class="form-group">
-                <label>password</label>
+                <label>Contraseña</label>
                 <input type="password" name="password" class="form-control">
               </div>
               <div class="form-group">
-                <label>telefono</label>
+                <label>Telefono</label>
                 <input type="text" name="telefono" class="form-control">
               </div>
               <div class="form-group"><br/>
-                <button type="submit" class="btn btn-primary btn-block">Submit Data</button>
+                <button type="submit" class="btn btn-success btn-block">Guardar</button>
+                
+                <a href="<?php echo base_url('admin');?>" class="btn btn-warning">Volver</a>
               </div>
             </form>
         </div>

@@ -3,12 +3,16 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Codeigniter 4 CRUD (Create, Read, Update and Delete) with Bootstrap and Datatables</title>
+  <title>CRUD</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+  <!--Hoja de estilos css-->
+  <link rel="stylesheet" href="<?php base_url();?>public\admin.css">
+
 </head>
 <body>
 <div class="container mt-4">
-    <p><h1>CRUD usuarios</h1></p>
+    <p><h1>CRUD usuarios >:3</h1></p>
     <div class="d-flex justify-content-end">
         <a href="<?php echo site_url('/user-form') ?>" class="btn btn-success mb-2">Crear usuario</a>
     </div>
@@ -72,7 +76,7 @@
   }
 </style>
 
-<button class="btn btn-primary btn-collapse" onclick="toggleCollapse()">
+<button class="btn btn-light btn-collapse" onclick="toggleCollapse()">
   <i class="fa-solid fa-circle-info fa-xl" style="color: #0000;"></i>
   Roles
 </button>
@@ -95,7 +99,6 @@
   }
 </script>
 
-  
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>

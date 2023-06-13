@@ -3,14 +3,9 @@
 <head>
   <title>CRUD</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-  <style>
-    .error {
-      display: block;
-      padding-top: 5px;
-      font-size: 14px;
-      color: red;
-    }
-  </style>
+  
+
+<link rel="stylesheet" href="<?php base_url();?>../public\admin.css">
 
 </head>
 <body>
@@ -57,7 +52,8 @@
 
 
     <div class="form-group">
-        <button type="submit" class="btn btn-info btn-block">Guardar Datos</button>
+        <button type="submit" class="btn btn-success btn-block">Guardar Datos</button>
+        <a href="<?php echo base_url('admin');?>" class="btn btn-warning">Volver</a>
     </div>
 </form>
 

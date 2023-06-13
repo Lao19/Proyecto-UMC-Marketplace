@@ -218,9 +218,10 @@
 
             <?php if ($roles == 1) : ?>
               <li class="nav-item active">
-                  <a type="button" class="btn btn-success" style="margin: 30px 5px;" href="<?php echo base_url('admin');?>">
-                      MODO DIOS
-                  </a>
+                <a type="button" class="btn btn-success" style="margin: 30px 5px 5px;" href="<?php echo base_url('admin');?>">
+                  MODO DIOS
+                </a>
+                <p>Si te aparece este boton, es porque eres el elegido....</p>    
               </li>
           <?php endif; ?>
 							

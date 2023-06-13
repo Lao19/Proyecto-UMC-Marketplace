@@ -74,14 +74,14 @@
             <label for="categoria-producto" class="label">Tipo de producto:</label>
             <select class="form-select campo" aria-label="Default select example">
               <option selected class="selecionar">Selecciona una categoría:</option>
-              <option value="1">Comestibles</option>
-              <option value="2">Entretenimiento</option>
-              <option value="3">Tecnología</option>
-              <option value="4">Educación</option>
-              <option value="5">Vestimenta</option>
-              <option value="6">Servicios</option>
-              <option value="7">Residencias</option>
-              <option value="8">Otros</option>
+              <option id="1" value="1">Comestibles</option>
+              <option id="2" value="2">Entretenimiento</option>
+              <option id="3" value="3">Tecnología</option>
+              <option id="4" value="4">Educación</option>
+              <option id="5" value="5">Vestimenta</option>
+              <option id="6" value="6">Servicios</option>
+              <option id="7" value="7">Residencias</option>
+              <option id="8" value="8">Otros</option>
             </select>
           </div>
 

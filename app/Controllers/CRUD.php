@@ -45,7 +45,7 @@ class CRUD extends BaseController
         $UsuarioModel->update($id_usuarios, $data);
 
         // Redirigir a la lista de usuarios
-        return redirect()->to('/users-list');
+        return redirect()->to(base_url('users-list'));
     }
 
     
@@ -76,7 +76,7 @@ public function store()
     ];
 
     $UsuarioModel->insert($data);
-    return $this->response->redirect(site_url('/users-list'));
+    return $this->response->redirect(base_url('users-list'));
 }
 
 
