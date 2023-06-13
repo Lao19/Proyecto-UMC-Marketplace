@@ -77,7 +77,19 @@
     
 
 
-    <!-- Alerta de error de sweetalert2 -->
+    <!-- Alerta de exito y error de sweetalert2 -->
+    <?php if(session()->getFlashdata('alert')): ?>
+    <script>
+        const alertData = <?= json_encode(session()->getFlashdata('alert')) ?>;
+        Swal.fire({
+            icon: 'success',
+            title: 'Felicitaciones!',
+            text: alertData.alert_message
+        });
+    </script>
+<?php endif; ?>
+
+
     <?php if(session()->getFlashdata('Error')): ?>
     <script>
         Swal.fire({

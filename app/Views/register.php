@@ -247,15 +247,6 @@
     </div>
 
     <!-- alertas de exito y fallo -->
-    <?php if(session()->getFlashdata('Exito')): ?>
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Felicitaciones!',
-            text: '<?= session()->getFlashdata('Exito') ?>'
-        });
-    </script>
-<?php endif; ?>
 <?php if(session()->getFlashdata('Error')): ?>
     <script>
         Swal.fire({

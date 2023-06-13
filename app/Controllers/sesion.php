@@ -119,10 +119,23 @@ class Sesion extends BaseController
                 $PerfilModel = new PerfilesModel();
                 $PerfilModel->insert(array('id_usuarios' => $id_usuario));
         
-                session()->setFlashdata('Exito', 'Felicitaciones. Ya te encuentras registrado.');
-                return redirect()->to(base_url('register'));
+                $message = session()->getFlashdata('Exito');
+                $alertMessage = 'Has sido registrado correctamente';
+
+                $alertData = [
+                    'message' => $message,
+                    'alert_message' => $alertMessage
+                ];
+
+                session()->setFlashdata('alert', $alertData);
+
+                return redirect()->to(base_url('login'));
+
+
+                                
+
             } else {
-                return redirect()->to(base_url('register'))->with('Error', 'Procura que el usuario tenga la misma cedula registrada! Recuerda también que la contraseña debe ser mínimo 8 dígitos y máximo 20');
+                return redirect()->to(base_url('register'));
             }
             
         }
