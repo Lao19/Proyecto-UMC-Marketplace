@@ -47,8 +47,17 @@
         <!--Titulo del formulario de registro-->
         <h1 class="title-registro">¡Haz una publicación!</h1>
                 
-        <form class="register-form" id="form" method="post" action=<?php base_url("publicar");?>>
-
+        <form class="register-form" id="form" method="post" action=<?php echo base_url("postear"); ?> enctype="multipart/form-data">
+        <!-- Mostrar errores de validación -->
+        <?php if (session()->has('errors')) : ?>
+                    <div class="alert alert-danger">
+                        <ul>
+                            <?php foreach (session('errors') as $error) : ?>
+                                <li><?php echo $error ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif;?> 
           <!--Campos del formulario de registro-->
           
           <div class="campos-producto" >
@@ -70,20 +79,21 @@
             <textarea class=" descripcion-producto" id="descripcion-producto" type="input" name="descripcion-producto" required placeholder="Describe brevemente el producto que ofreces, por favor, se lo más detallado posible"></textarea>
           </div>
 
-          <div class="campos-producto">
+        <div class="campos-producto">
             <label for="categoria-producto" class="label">Tipo de producto:</label>
-            <select class="form-select campo" aria-label="Default select example">
+            <select class="form-select campo" id="categoria-producto" name = "categoriaId" aria-label="Default select example">
               <option selected class="selecionar">Selecciona una categoría:</option>
-              <option id="1" value="1">Comestibles</option>
-              <option id="2" value="2">Entretenimiento</option>
-              <option id="3" value="3">Tecnología</option>
-              <option id="4" value="4">Educación</option>
-              <option id="5" value="5">Vestimenta</option>
-              <option id="6" value="6">Servicios</option>
-              <option id="7" value="7">Residencias</option>
-              <option id="8" value="8">Otros</option>
-            </select>
-          </div>
+              <option data-id="1" value="1">Comestibles</option>
+              <option data-id="2" value="2">Entretenimiento</option>
+              <option data-id="3" value="3">Tecnología</option>
+              <option data-id="4" value="4">Educación</option>
+              <option data-id="5" value="5">Vestimenta</option>
+              <option data-id="6" value="6">Servicios</option>
+              <option data-id="7" value="7">Residencias</option>
+              <option data-id="8" value="8">Otros</option>
+          </select>
+        </div>
+
 
           <!--Boton para subir un archivo-->
           <section id="Images" class="images-cards">
@@ -146,7 +156,6 @@
     ?>
 
   </div>
-
 
 
   <!-- script para tener una vista previa de las imagenes a subir -->

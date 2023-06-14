@@ -54,6 +54,9 @@ $routes->get('profile-user/(:any)', 'Perfil::public/$1');
 $routes->get('/sesion/login', 'Sesion::logout');
 //Postear publicacion
 $routes->get('postear', 'Publicar::index');
+$routes->post('postear', 'Publicar::publish');
+//para las categorias
+$routes->post('Publicar/publish', 'Publicar::publish');
 //para las publicaciones
 $routes->get('post', 'Publicaciones::post');
 

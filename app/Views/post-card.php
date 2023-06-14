@@ -47,7 +47,11 @@
     </p>
 
     <div class="card-btn text-end">
-      <button type="button" class="btn btn-primary boton" href="#"">Ver</button>
+    <?php
+      $rutaVista = 'post'; // Reemplaza 'nombre_de_la_vista' por el nombre de la vista a la que deseas redirigir
+      $urlVista = site_url($rutaVista);
+      echo anchor($urlVista, 'Ver', ['class' => 'btn btn-primary boton']);
+      ?>
     </div>
 
   </div>
