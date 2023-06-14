@@ -9,9 +9,15 @@ class Publicar extends BaseController
 {
     protected $helpers = ['url', 'form'];
 
-    public function index()
+    public function indexpostcard()
     {
-        return view('postear');
+        $publicacionesModel = new PublicacionesModel();
+        $publicaciones = $publicacionesModel->findAll(); // Obtiene todas las publicaciones
+
+        $data['publicaciones'] = $publicaciones;
+
+        return view('post-card', $data);
+
     }
 
 

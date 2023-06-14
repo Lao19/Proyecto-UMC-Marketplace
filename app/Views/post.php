@@ -35,6 +35,14 @@
 
       <div class="container-fluid">
 
+      <h1>Datos:</h1>
+<pre>
+    <?php
+        print_r($publicaciones);
+    ?>
+</pre> 
+
+
         <!--titulo y logo de la barra de navegacion-->
         <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
           <img class="logo-nav" src=".\public\img\logo-umc.webp" alt="">

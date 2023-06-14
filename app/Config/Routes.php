@@ -53,12 +53,19 @@ $routes->get('profile-user/(:any)', 'Perfil::public/$1');
 // logout
 $routes->get('/sesion/login', 'Sesion::logout');
 //Postear publicacion
-$routes->get('postear', 'Publicar::index');
+$routes->get('postear', 'Publicar::indexpostcard');
 $routes->post('postear', 'Publicar::publish');
 //para las categorias
 $routes->post('Publicar/publish', 'Publicar::publish');
 //para las publicaciones
 $routes->get('post', 'Publicaciones::post');
+$routes->get('post', 'Publicaciones::indexpost');
+$routes->get('Publicaciones/indexpost', 'Publicaciones::indexpost');
+$routes->get('Publicar/indexpostcard', 'Publicar::indexpostcard');
+$routes->get('post-card', 'Publicar::indexpostcard');
+$routes->get('inicio', 'Publicaciones::indexinicio');
+$routes->get('inicio', 'Publicar::indexpostcard');
+
 
 //Rutas para el CRUD
 $routes->get('admin','CRUD::Vista_CRUD');

@@ -34,27 +34,24 @@
 
 </style>
 
-<div class="card " style="width: 18rem;">
-  <img src=<?php echo base_url('public/img/raton.webp'); ?> class="card-img-top pic" alt="...">
+<!-- Itera sobre cada publicación y muestra las tarjetas -->
+<?php foreach ($publicaciones as $publicacion) : ?>
+    <div class="card" style="width: 18rem;">
+      <img src="<?php echo base_url('public/img/raton.webp'); ?>" class="card-img-top pic" alt="...">
 
-  <div class="card-body">
+      <div class="card-body">
+        <h4 class="card-title"><?php echo $publicacion->nombre; ?></h4>
 
-    <h4 class="card-title">Raton el misu</h4>
+        <p class="card-text">
+          <?php echo $publicacion->precio; ?>
+          <i class="fa-solid fa-dollar-sign fa-xl"></i>
+        </p>
 
-    <p class="card-text">
-      gratiman
-      <i class="fa-solid fa-dollar-sign fa-xl"></i>
-    </p>
-
-    <div class="card-btn text-end">
-    <?php
-      $rutaVista = 'post'; // Reemplaza 'nombre_de_la_vista' por el nombre de la vista a la que deseas redirigir
-      $urlVista = site_url($rutaVista);
-      echo anchor($urlVista, 'Ver', ['class' => 'btn btn-primary boton']);
-      ?>
+        <div class="card-btn text-end">
+        <a href="<?php echo base_url('post') ?>" class="btn btn-primary">Ver publicación</a>
+        </div>
+      </div>
     </div>
+<?php endforeach; ?>
 
-  </div>
-
-</div>
 
