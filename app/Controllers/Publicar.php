@@ -9,16 +9,129 @@ class Publicar extends BaseController
 {
     protected $helpers = ['url', 'form'];
 
-    public function indexpostcard()
+    public function Principal($categoriaId = null)
+{
+    $publicacionesModel = new PublicacionesModel();
+
+    if ($categoriaId !== null) {
+        $publicaciones = $publicacionesModel->where('id_categorias', $categoriaId)->findAll();
+    } else {
+        $publicaciones = $publicacionesModel->findAll();
+    }
+
+    return view('inicio', ['publicaciones' => $publicaciones]);
+}
+
+
+
+    public function index()
+
     {
-        $publicacionesModel = new PublicacionesModel();
-        $publicaciones = $publicacionesModel->findAll(); // Obtiene todas las publicaciones
+        // $publicacionesModel = new PublicacionesModel();
+        // $publicaciones = $publicacionesModel->findAll(); // Obtiene todas las publicaciones
 
-        $data['publicaciones'] = $publicaciones;
+        // $data['publicaciones'] = $publicaciones;
 
-        return view('post-card', $data);
+        return view ('postear');
 
     }
+    
+
+    // public function indexPostCard()
+    // {
+    //     $publicacionesModel = new PublicacionesModel();
+
+    //     $publicacion = $publicacionesModel->find(7);
+
+    //     // Asigna cada campo a una variable separada
+    //     $id_categorias = $publicacion['id_categorias'];
+    //     $id_perfiles = $publicacion['id_perfiles'];
+    //     $id_usuarios = $publicacion['id_usuarios'];
+    //     $nombre_public = $publicacion['nombre_public'];
+    //     $precio = $publicacion['precio'];
+    //     $descripcion = $publicacion['descripcion'];
+    //     $imagen_prod = $publicacion['imagen_prod'];
+    //     $likes = $publicacion['likes'];
+    //     $fecha_publicacion = $publicacion['fecha_publicacion'];
+
+    //     // Carga la vista y pasa las variables
+    //     echo view('post-card', [
+    //         'id_categorias' => $id_categorias,
+    //         'id_perfiles' => $id_perfiles,
+    //         'id_usuarios' => $id_usuarios,
+    //         'nombre_public' => $nombre_public,
+    //         'precio' => $precio,
+    //         'descripcion' => $descripcion,
+    //         'imagen_prod' => $imagen_prod,
+    //         'likes' => $likes,
+    //         'fecha_publicacion' => $fecha_publicacion,
+    //     ]);
+    // }
+
+    public function indexPost()
+    {
+        $publicacionesModel = new PublicacionesModel();
+
+        $publicacion = $publicacionesModel->find(7);
+
+        // Asigna cada campo a una variable separada
+        $id_categorias = $publicacion['id_categorias'];
+        $id_perfiles = $publicacion['id_perfiles'];
+        $id_usuarios = $publicacion['id_usuarios'];
+        $nombre_public = $publicacion['nombre_public'];
+        $precio = $publicacion['precio'];
+        $descripcion = $publicacion['descripcion'];
+        $imagen_prod = $publicacion['imagen_prod'];
+        $likes = $publicacion['likes'];
+        $fecha_publicacion = $publicacion['fecha_publicacion'];
+
+        // Carga la vista y pasa las variables
+        echo view('post', [
+            'id_categorias' => $id_categorias,
+            'id_perfiles' => $id_perfiles,
+            'id_usuarios' => $id_usuarios,
+            'nombre_public' => $nombre_public,
+            'precio' => $precio,
+            'descripcion' => $descripcion,
+            'imagen_prod' => $imagen_prod,
+            'likes' => $likes,
+            'fecha_publicacion' => $fecha_publicacion,
+        ]);
+    }
+
+    // public function indexInicio()
+    // {
+    //     $publicacionesModel = new PublicacionesModel();
+
+    //     $publicacion = $publicacionesModel->find(7);
+
+    //     // Asigna cada campo a una variable separada
+    //     $id_categorias = $publicacion['id_categorias'];
+    //     $id_perfiles = $publicacion['id_perfiles'];
+    //     $id_usuarios = $publicacion['id_usuarios'];
+    //     $nombre = $publicacion['nombre'];
+    //     $precio = $publicacion['precio'];
+    //     $descripcion = $publicacion['descripcion'];
+    //     $imagen_prod = $publicacion['imagen_prod'];
+    //     $likes = $publicacion['likes'];
+    //     $fecha_publicacion = $publicacion['fecha_publicacion'];
+
+    //     // Carga la vista y pasa las variables
+    //     return view('inicio', [
+    //         'id_categorias' => $id_categorias,
+    //         'id_perfiles' => $id_perfiles,
+    //         'id_usuarios' => $id_usuarios,
+    //         'nombre' => $nombre,
+    //         'precio' => $precio,
+    //         'descripcion' => $descripcion,
+    //         'imagen_prod' => $imagen_prod,
+    //         'likes' => $likes,
+    //         'fecha_publicacion' => $fecha_publicacion,
+    //     ]);
+    // }
+
+
+
 
 
     public function publish()
@@ -78,7 +191,7 @@ class Publicar extends BaseController
 
 
             $data = [
-                'nombre' => $nombreProducto,
+                'nombre_public' => $nombreProducto,
                 'precio' => $precioProducto,
                 'descripcion' => $descripcionProducto,
                 'id_categorias' => $categoriaId,

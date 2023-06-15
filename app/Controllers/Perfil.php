@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 use App\Models\AvatarModel;
+use App\Models\PublicacionesModel;
 
 class Perfil extends BaseController
 {
@@ -52,27 +53,43 @@ class Perfil extends BaseController
         $avatarModel = new AvatarModel();
         $avatar = $avatarModel->where('id_perfiles', $usuarioId)->first();
         $avatarSrc = $avatar ? $avatar['avatar_url'] : 'ruta_predeterminada_del_avatar';
+        
+            // Obtener las publicaciones del usuario
+        $publicacionesModel = new PublicacionesModel();
+        $publicaciones = $publicacionesModel->where('id_usuarios', $usuarioId)->findAll();
+
+        
     
         // Pasar las variables a la vista, incluyendo $avatarSrc y $roles
-        return view('profile', compact('usuarioId', 'usuario', 'nombre', 'apellido', 'telefono', 'biografia', 'avatarSrc', 'roles'));
+        return view('profile', compact('usuarioId', 'usuario', 'nombre', 'apellido', 'telefono', 
+        'biografia', 'avatarSrc', 'roles', 'publicaciones'));
     }
     
 
     public function public($usuario)
-    {
-        // Obtener la información del usuario correspondiente de la base de datos
-        $UsuarioModel = new UsuarioModel();
-        $usuario = $UsuarioModel->where('usuario', $usuario)->first();
+{
+    // Obtener la información del usuario correspondiente de la base de datos
+    $UsuarioModel = new UsuarioModel();
+    $usuario = $UsuarioModel->where('usuario', $usuario)->first();
 
-        // Obtener la URL del avatar del usuario
-        $usuarioId = $usuario['id_usuarios'];
-        $avatarModel = new AvatarModel();
-        $avatar = $avatarModel->where('id_perfiles', $usuarioId)->first();
-        $avatarSrc = $avatar ? $avatar['avatar_url'] : 'ruta_predeterminada_del_avatar';
+    // Obtener la URL del avatar del usuario
+    $usuarioId = $usuario['id_usuarios'];
+    $avatarModel = new AvatarModel();
+    $avatar = $avatarModel->where('id_perfiles', $usuarioId)->first();
+    $avatarSrc = $avatar ? $avatar['avatar_url'] : 'ruta_predeterminada_del_avatar';
 
-        // Cargar la vista de perfil público y pasar la información del usuario y el avatarSrc
-        return view('profile-user', compact('usuario', 'avatarSrc'));
-    }
+    // Obtener las publicaciones del usuario
+    $publicacionesModel = new PublicacionesModel();
+    $publicaciones = $publicacionesModel->where('id_usuarios', $usuarioId)->findAll();
+
+    // Pasar las variables a la vista, incluyendo el usuario, el avatarSrc y las publicaciones
+    return view('profile-user', [
+        'usuario' => $usuario,
+        'avatarSrc' => $avatarSrc,
+        'publicaciones' => $publicaciones
+    ]);
+}
+
 
     public function guardarActualizarAvatar()
     {

@@ -39,9 +39,9 @@
 <?php foreach ($publicaciones as $publicacion): ?>
     <div class="card" style="width: 18rem;">
         <img src="<?php echo base_url('public/img/raton.webp'); ?>" class="card-img-top pic" alt="...">
-
+        <h4 class="card-title"><?php echo $publicacion['nombre_public']; ?></h4>
         <div class="card-body">
-            <h4 class="card-title"><?php echo $publicacion['nombre_public']; ?></h4>
+            
             <h4 class="card-title"><?php echo $publicacion['descripcion']; ?></h4>
 
             <p class="card-text">

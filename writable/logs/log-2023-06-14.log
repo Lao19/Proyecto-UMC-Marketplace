@@ -1243,3 +1243,225 @@ in APPPATH\Views\post.php on line 41.
  7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\publicaciones))
  8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 21:58:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 21:58:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 21:58:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:03:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:04:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:04:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:05:26 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:16:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:16:20 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:16:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:16:21 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:16:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:16:22 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:16:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:16:23 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:16:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:16:23 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:16:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:16:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:16:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:16:32 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:26:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:26:30 --> Call to undefined method App\Models\PublicacionesModel::ordenBy
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Models\PublicacionesModel.php(15): CodeIgniter\Model->__call('ordenBy', [...])
+ 2 APPPATH\Controllers\Publicar.php(15): App\Models\PublicacionesModel->get_publicacionRandomdos()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Publicar->indexpostcard()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Publicar))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:27:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:27:38 --> Call to undefined method App\Models\PublicacionesModel::ordenBy
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Models\PublicacionesModel.php(15): CodeIgniter\Model->__call('ordenBy', [...])
+ 2 APPPATH\Controllers\Publicar.php(15): App\Models\PublicacionesModel->get_publicacionRandomdos()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Publicar->indexpostcard()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Publicar))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:27:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:27:39 --> Call to undefined method App\Models\PublicacionesModel::ordenBy
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Models\PublicacionesModel.php(15): CodeIgniter\Model->__call('ordenBy', [...])
+ 2 APPPATH\Controllers\Publicar.php(15): App\Models\PublicacionesModel->get_publicacionRandomdos()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Publicar->indexpostcard()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Publicar))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:27:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:27:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:27:43 --> Call to undefined method App\Models\PublicacionesModel::ordenBy
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Models\PublicacionesModel.php(15): CodeIgniter\Model->__call('ordenBy', [...])
+ 2 APPPATH\Controllers\Publicar.php(15): App\Models\PublicacionesModel->get_publicacionRandomdos()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Publicar->indexpostcard()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Publicar))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:28:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:28:20 --> Call to undefined method App\Models\PublicacionesModel::get_publicacionRandomdos
+in SYSTEMPATH\Model.php on line 842.
+ 1 APPPATH\Controllers\Publicar.php(15): CodeIgniter\Model->__call('get_publicacionRandomdos', [])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Publicar->indexpostcard()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Publicar))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:29:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:29:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:29:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:32:52 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:32:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:32:53 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:32:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:32:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:33:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:33:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:33:13 --> Undefined variable $publicaciones
+in APPPATH\Views\post-card.php on line 38.
+ 1 APPPATH\Views\post-card.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicaciones', 'APPPATH\\Views\\post-card.php', 38)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:33:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-14 22:33:40 --> Undefined variable $publicacion
+in APPPATH\Views\post-card.php on line 43.
+ 1 APPPATH\Views\post-card.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $publicacion', 'APPPATH\\Views\\post-card.php', 43)
+ 2 APPPATH\Views\inicio.php(78): include_once('APPPATH\\Views\\post-card.php')
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\inicio.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('inicio', [], true)
+ 6 APPPATH\Controllers\inicio.php(9): view('inicio')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\inicio->Principal()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\inicio))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-14 22:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:34:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:34:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:36:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:36:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:37:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:37:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:38:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:39:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:39:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:40:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 22:58:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-14 23:01:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

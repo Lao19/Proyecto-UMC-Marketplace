@@ -35,10 +35,10 @@
 
       <div class="container-fluid">
 
-      <h1>Datos:</h1>
+  
 <pre>
     <?php
-        print_r($publicaciones);
+     //   print_r($nombre);
     ?>
 </pre> 
 
@@ -177,7 +177,7 @@
 
 							<h3 class="mb-4">
               <i class="fa-solid fa-basket-shopping fa-xl" style="color: #fff04d;"></i>
-								Nombre del producto
+              <?php echo $nombre; ?>
 							</h3>
 
 							<div class="row">
@@ -197,7 +197,7 @@
                     </div>
                     </h6>
                    
-                    <h5 class="precio"> USD 50$  </h5>
+                    <h5 class="precio"> USD <?php echo $precio; ?> </h5>
 
                     <div class="like">
                       <button id="likeButton" class="like-button"><i class="fa-solid fa-thumbs-up fa-xl" style="color: #95a9f9;"></i></button>
@@ -206,14 +206,15 @@
                     
 
 
-                    <p class="descripcion"> Descripción del producto Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="descripcion"> <?php echo $descripcion; ?></p>
 
                     <div class="contact-info">
-                        <p>Número de contacto: <span class="telefono">123456789</span> </p>
+                        <p>Número de contacto: <span class="telefono"></span> </p>
             
                     </div>
 
                     <p>Tipo de producto: Tipo de producto</p>
+                    
                   </div>
                 </div>
 

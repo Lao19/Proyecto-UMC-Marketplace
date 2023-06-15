@@ -321,9 +321,9 @@
 						<div class="tab-pane fade" id="publication" role="tabpanel" aria-labelledby="publication-tab">
 
 							
-						<?php
-            				include_once "post-card.php";
-          				?>
+						 <?php
+            				include_once "post-card2.php";
+          				?> 
 							
 
 							

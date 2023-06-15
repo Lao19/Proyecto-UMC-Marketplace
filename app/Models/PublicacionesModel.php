@@ -8,5 +8,6 @@ class PublicacionesModel extends Model
 {
     protected $table = 'publicaciones';
     protected $primaryKey = 'id_publicaciones';
-    protected $allowedFields = ['id_categorias', 'id_perfiles', 'id_usuarios', 'nombre', 'precio', 'descripcion', 'imagen_prod', 'likes'];
+    protected $allowedFields = ['id_categorias', 'id_perfiles', 'id_usuarios', 'nombre_public', 'precio', 'descripcion', 'imagen_prod', 'likes', 'fecha_publicacion'];
+
 }

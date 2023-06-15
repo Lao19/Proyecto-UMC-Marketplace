@@ -35,39 +35,86 @@
 
     <!--Cartas de las categorias-->
     <div class="container">
+  <section class="text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-8 col-md-8 mx-auto">
+        <h1 class="fw-light">
+          Bienvenido a UMC Marketplace
+          </h1>
+          <p class="lead text-body-secondary">En nuestra plataforma podrás encontrar productos de diferentes categorías:</p>
 
-      <section class=" text-center container">
-
-        <div class="row py-lg-5">
-
-          <div class="col-lg-8 col-md-8 mx-auto">
-
-            <h1 class="fw-light">
-              <!-- <i class="fa-solid fa-tags fa-lg" style="color: #e5e166;"></i>   -->
-              Bienvenido a UMC Marketplace
-            </h1>
-
-            <p class="lead text-body-secondary">En nuestra plataforma podrás encontrar productos de diferentes categorías:</p>
-
-
-            <!-- Estos son los botones para filtrar las distintas categorias -->
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn categoria">Vestimenta</button>
-              <button type="button" class="btn categoria">Tecnología</button>
-              <button type="button" class="btn categoria">Educación</button>
-              <button type="button" class="btn categoria">Comestibles</button>
-              <button type="button" class="btn categoria">Entretenimiento</button>
-              <button type="button" class="btn categoria">Residencias</button>
-              <button type="button" class="btn categoria">Otros</button>
-            </div>
-
+          <!-- Estos son los botones para filtrar las distintas categorías -->
+          <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="<?= base_url('Principal') ?>" class="btn categoria">Mostrar todos</a>
+                <a href="<?= base_url('Principal/1') ?>" class="btn categoria">Comestibles</a>
+                <a href="<?= base_url('Principal/2') ?>" class="btn categoria">Entretenimiento</a>
+                <a href="<?= base_url('Principal/3') ?>" class="btn categoria">Tecnología</a>
+                <a href="<?= base_url('Principal/4') ?>" class="btn categoria">Educación</a>
+                <a href="<?= base_url('Principal/5') ?>" class="btn categoria">Vestimenta</a>
+                <a href="<?= base_url('Principal/6') ?>" class="btn categoria">Servicios</a>
+                <a href="<?= base_url('Principal/7') ?>" class="btn categoria">Residencias</a>
+                <a href="<?= base_url('Principal/8') ?>" class="btn categoria">Otros</a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-      </section>
+  <!-- Itera sobre cada publicación y muestra las tarjetas -->
+  <div class="row" id="publicaciones-container">
+    <!-- Aquí se mostrarán las tarjetas de las publicaciones filtradas -->
+  </div>
+</div>
+
+<script>
+  // Obtener el contenedor de las publicaciones
+  const publicacionesContainer = document.getElementById('publicaciones-container');
+
+  // Obtener todos los botones de categoría
+  const categoriaButtons = document.querySelectorAll('.categoria');
+
+  // Agregar el evento click a cada botón de categoría
+  categoriaButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const categoriaId = button.dataset.id;
+
+      // Realizar la solicitud AJAX para obtener las publicaciones de la categoría seleccionada
+
+      fetch(`/api/publicaciones?categoria=${categoriaId}`)
+        .then(response => response.json())
+        .then(data => {
+          // Limpiar el contenedor de publicaciones
+          publicacionesContainer.innerHTML = '';
+
+          // Iterar sobre las publicaciones y crear las tarjetas correspondientes
+          data.forEach(publicacion => {
+            const tarjeta = `
+              <div class="card" style="width: 18rem;">
+                <img src="${publicacion.imagen}" class="card-img-top pic" alt="...">
+                <div class="card-body">
+                  <h4 class="card-title">${publicacion.titulo}</h4>
+                  <h4 class="card-title">${publicacion.descripcion}</h4>
+                  <p class="card-text">${publicacion.precio} <i class="fa-solid fa-dollar-sign fa-xl"></i></p>
+                  <div class="card-btn text-end">
+                    <a href="${publicacion.url}" class="btn btn-primary">Ver publicación</a>
+                  </div>
+                </div>
+              </div>
+            `;
+
+            // Agregar la tarjeta al contenedor de publicaciones
+            publicacionesContainer.insertAdjacentHTML('beforeend', tarjeta);
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+  });
+</script>
 
 
-
+s
       <div class="album">
         <div class="container">
 
@@ -75,8 +122,9 @@
 
           <!-- Aqui es donde van a ir las tarjetas de las publicaciones -->
           <?php
+            //print_r($nombre);
             include_once "post-card.php";
-          ?>
+          ?> 
 
 
         </div>

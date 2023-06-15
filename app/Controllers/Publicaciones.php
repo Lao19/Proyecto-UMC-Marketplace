@@ -6,45 +6,45 @@ use App\Models\PublicacionesModel;
 class publicaciones extends BaseController
 {
 
-    public function indexinicio()
-    {
-        $publicacionModel = new PublicacionesModel();
-        $publicaciones = $publicacionModel->findAll();
+    // public function indexinicio()
+    // {
+    //     $publicacionModel = new PublicacionesModel();
+    //     $publicaciones = $publicacionModel->findAll();
 
-        $data['publicaciones'] = $publicaciones;
+    //     $data['publicaciones'] = $publicaciones;
 
-        return view('inicio', $data);
-    }
+    //     return view('inicio', $data);
+    // }
 
-    public function indexprofile()
-    {
-        $publicacionModel = new PublicacionesModel();
-        $publicaciones = $publicacionModel->findAll();
+    // public function indexprofile()
+    // {
+    //     $publicacionModel = new PublicacionesModel();
+    //     $publicaciones = $publicacionModel->findAll();
 
-        $data['publicaciones'] = $publicaciones;
+    //     $data['publicaciones'] = $publicaciones;
 
-        return view('profile', $data);
-    }
+    //     return view('profile', $data);
+    // }
 
-    public function indexprofileu()
-    {
-        $publicacionModel = new PublicacionesModel();
-        $publicaciones = $publicacionModel->findAll();
+    // public function indexprofileu()
+    // {
+    //     $publicacionModel = new PublicacionesModel();
+    //     $publicaciones = $publicacionModel->findAll();
 
-        $data['publicaciones'] = $publicaciones;
+    //     $data['publicaciones'] = $publicaciones;
 
-        return view('profile-user', $data);
-    }
+    //     return view('profile-user', $data);
+    // }
 
-    public function indexpost()
-    {
-        $publicacionModel = new PublicacionesModel();
-        $publicaciones = $publicacionModel->findAll();
+    // public function indexpost()
+    // {
+    //     $publicacionModel = new PublicacionesModel();
+    //     $publicaciones = $publicacionModel->findAll();
 
-        $data['publicaciones'] = $publicaciones;
+    //     $data['publicaciones'] = $publicaciones;
 
-        return view('post', $data);
-    }
+    //     return view('post', $data);
+    // }
 
 
     public function post()
