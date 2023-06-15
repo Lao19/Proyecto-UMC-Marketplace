@@ -36,7 +36,7 @@ $routes->post('login', 'Sesion::login');
 $routes->get('register', 'Sesion::register');
 $routes->post('register', 'Sesion::create');
 $routes->get('inicio', 'Publicar::Principal');
-$routes->get('Principal/(:num)', 'Publicar::Principal/$1');
+$routes->get('inicio/(:num)', 'Publicar::Principal/$1');
 // $routes->get('inicio', 'inicio::Principal');
 $routes->get('profile/(:any)', 'Perfil::account/$1');
 //ruta para q actualice la biografia de mierda esa
@@ -69,7 +69,8 @@ $routes->get('postear', 'Publicar::index');
 $routes->post('postear', 'Publicar::publish');
 $routes->post('publicar/publish', 'Publicar::publish');
 $routes->get('post-card', 'Publicar::indexPostCard');// FUNCIONAAAAAAAAA
-$routes->get('post', 'Publicar::indexPost');
+$routes->get('post/(:num)', 'Publicar::IndexPost/$1');
+
 // $routes->get('inicio', 'Publicar::indexInicio');
 $routes->get('profile/(:any)', 'Publicar::indexprofile');
 

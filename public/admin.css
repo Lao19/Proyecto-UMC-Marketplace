@@ -3,7 +3,7 @@ body{
     display: flex; /*Se utiliza flex para tener una estructura de una sola dimension*/
     justify-content: center;
     font-family: 'Carter One', cursive;
-    background-image: url(img/fondo-crud.svg) ;
+    background-image: url(img/fondo-crud.webp) ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;

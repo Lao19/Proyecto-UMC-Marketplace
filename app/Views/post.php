@@ -19,7 +19,8 @@
     <script src="https://kit.fontawesome.com/3af059f722.js" crossorigin="anonymous"></script>
 
     <!--Hoja de estilos css-->
-    <link rel="stylesheet" href="<?php base_url();?>public/style-post.css">
+    <link rel="stylesheet" href="<?php base_url();?>../public/style-post.css">
+    <link rel="icon" href="<?= base_url('public/img/logo-umc.webp')?>" type="image/x-icon">
 
 	<!-- link al jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -28,95 +29,10 @@
 
 <body>
 
-  <!--Barra de navegacion-->
-  <header style="position:sticky; top: 0; z-index: 1000;"> 
-  <!--Barra de navegacion-->
-    <nav class="navbar navbar-dark bg-dark sticky-top" >
-
-      <div class="container-fluid">
-
-  
-<pre>
-    <?php
-     //   print_r($nombre);
-    ?>
-</pre> 
-
-
-        <!--titulo y logo de la barra de navegacion-->
-        <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
-          <img class="logo-nav" src=".\public\img\logo-umc.webp" alt="">
-          UMC Marketplace
-        </a>
-
-        <!--Barra y boton de busqueda-->
-        <nav class="navbar bg-dark busqueda ">
-          <div class="container-fluid">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-light btn-busqueda" type="submit">
-                <img class="buscar-logo" src=".\public\img\busqueda.svg" alt="">
-              </button>
-            </form>
-          </div>
-        </nav>
-
-        <!--Boton del menu desplegable a la derecha-->
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-          <i class="fa-solid fa-bars fa-lg" style="color: #e6da50;"></i>
-        </button>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-
-          <!--Titulo del menu desplegable-->
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-              <i class="fa-solid fa-bars fa-2xl icon" style="color: #e6da50;"></i>
-              Menú
-            </h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-
-          <!--Lista de botones del menu desplegable-->
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-
-              <!--Boton al perfil del usuario-->
-              <li class="nav-item">
-                <a class="nav-link" href="profile/<?php echo session('usuario')['usuario']; ?>">
-                  <i class="fa-solid fa-user fa-xl icon" style="color: #50b9e6;"></i>
-                  Perfil
-                </a>
-              </li>
-
-              <!--Boton para hacer una publicacion-->
-              <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('postear');?>">
-                  <i class="fa-solid fa-upload fa-xl icon" style="color: #50e66e;"></i>
-                  Haz una publicación
-                </a>
-              </li>
-           
-
-
-              <!--Boton para cerrar sesion-->
-                <li class="nav-item active">
-                 <a class="nav-link" href="<?php echo base_url();?>/sesion/login">
-                  <i class="fa-solid fa-right-from-bracket fa-xl icon" style="color: #e65850;"></i>
-                  Cerrar sesión
-                </a>
-              </li>
-
-              
-            </ul>
-            
-          </div>
-
-        </div>
-
-      </div>
-
-    </nav>
-  </header> 
+ <!--Llamado al archivo header que contiene la barra de navegacion-->
+ <?php
+    include_once "header.php";
+  ?>
 
 	<!--Cuadro de ajustes del perfil-->
 	<section class="my-5">
@@ -177,7 +93,6 @@
 
 							<h3 class="mb-4">
               <i class="fa-solid fa-basket-shopping fa-xl" style="color: #fff04d;"></i>
-              <?php echo $nombre; ?>
 							</h3>
 
 							<div class="row">
@@ -186,35 +101,35 @@
                   
                   <div class="product-info">
 
-                    <h6>
-                      Nombre del vendedor
+                  <h6>
+                      Usuario del vendedor: <?= $usuario['usuario'] ?>
                       <div class="ver">
-                      <button id="verperfil" class="ver-perfil">
-                        <i class="fa-solid fa-users-viewfinder fa-xl" style="color: #95a9f9;"></i>
-                        Ver perfil
+                          <a href="<?= base_url('profile-user/' . $usuario['usuario']) ?>" class="ver-perfil">
+                              <i class="fa-solid fa-users-viewfinder fa-xl" style="color: #95a9f9;"></i>
+                              Ver perfil
+                          </a>
+                      </div>
+                  </h6>
+
+
+                  <h5 class="precio">USD <?= $publicacion['precio'] ?></h5>
+
+                  <div class="like">
+                      <button id="likeButton" class="like-button">
+                          <i class="fa-solid fa-thumbs-up fa-xl" style="color: #95a9f9;"></i>
                       </button>
-                      
-                    </div>
-                    </h6>
-                   
-                    <h5 class="precio"> USD <?php echo $precio; ?> </h5>
-
-                    <div class="like">
-                      <button id="likeButton" class="like-button"><i class="fa-solid fa-thumbs-up fa-xl" style="color: #95a9f9;"></i></button>
                       <span id="likeCount">0</span>
-                    </div>
-                    
+                  </div>
 
+                  <p class="descripcion"><?= $publicacion['descripcion'] ?></p>
+                  
 
-                    <p class="descripcion"> <?php echo $descripcion; ?></p>
+                  <div class="contact-info">
+                      <p>Número de contacto: <span class="telefono"><?= $usuario['telefono'] ?></span></p>
+                  </div>
 
-                    <div class="contact-info">
-                        <p>Número de contacto: <span class="telefono"></span> </p>
-            
-                    </div>
+                  <p>Tipo de producto: <?= $publicacion['id_categorias'] ?></p>
 
-                    <p>Tipo de producto: Tipo de producto</p>
-                    
                   </div>
                 </div>
 

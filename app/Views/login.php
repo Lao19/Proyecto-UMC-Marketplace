@@ -23,6 +23,7 @@
 
     <!--link a la pagina de estilos-->
     <link rel="stylesheet" href="<?php base_url();?>public\style-login-register.css">
+    <link rel="icon" href="<?= base_url('public/img/logo-umc.webp')?>" type="image/x-icon">
 
 </head>
 

@@ -6,21 +6,23 @@
 
         <!--titulo y logo de la barra de navegacion-->
         <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
-          <img class="logo-nav" src="public\img\logo-umc.webp" alt="">
+          <img class="logo-nav" src="<?= base_url('public/img/logo-umc.webp')?>" alt="">
           UMC Marketplace
         </a>
 
         <!--Barra y boton de busqueda-->
-        <nav class="navbar bg-dark busqueda ">
+        <!-- <nav class="navbar bg-dark busqueda ">
           <div class="container-fluid">
-            <form class="d-flex" role="search">
+
+            <form action="<?php echo base_url('/buscar')?>" method="post" class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
               <button class="btn btn-outline-light btn-busqueda" type="submit">
-                <img class="buscar-logo" src="public\img\busqueda.svg" alt="">
+                <img class="buscar-logo" src="<?= base_url('public/img/busqueda.svg') ?>" alt="">
               </button>
             </form>
+
           </div>
-        </nav>
+        </nav> -->
 
         <!--Boton del menu desplegable a la derecha-->
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
@@ -76,4 +78,4 @@
       </div>
 
     </nav>
-  </header> 
+  </header>

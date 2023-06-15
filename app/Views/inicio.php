@@ -20,6 +20,7 @@
 
     <!--Hoja de estilos css-->
     <link rel="stylesheet" href="<?php base_url();?>public\styles-inicio.css">
+    <link rel="icon" href="<?= base_url('public/img/logo-umc.webp')?>" type="image/x-icon">
   </head>
 
 
@@ -45,15 +46,14 @@
 
           <!-- Estos son los botones para filtrar las distintas categorías -->
           <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="<?= base_url('Principal') ?>" class="btn categoria">Mostrar todos</a>
-                <a href="<?= base_url('Principal/1') ?>" class="btn categoria">Comestibles</a>
-                <a href="<?= base_url('Principal/2') ?>" class="btn categoria">Entretenimiento</a>
-                <a href="<?= base_url('Principal/3') ?>" class="btn categoria">Tecnología</a>
-                <a href="<?= base_url('Principal/4') ?>" class="btn categoria">Educación</a>
-                <a href="<?= base_url('Principal/5') ?>" class="btn categoria">Vestimenta</a>
-                <a href="<?= base_url('Principal/6') ?>" class="btn categoria">Servicios</a>
-                <a href="<?= base_url('Principal/7') ?>" class="btn categoria">Residencias</a>
-                <a href="<?= base_url('Principal/8') ?>" class="btn categoria">Otros</a>
+                <a href="<?= base_url('inicio/1') ?>" class="btn categoria">Comestibles</a>
+                <a href="<?= base_url('inicio/2') ?>" class="btn categoria">Entretenimiento</a>
+                <a href="<?= base_url('inicio/3') ?>" class="btn categoria">Tecnología</a>
+                <a href="<?= base_url('inicio/4') ?>" class="btn categoria">Educación</a>
+                <a href="<?= base_url('inicio/5') ?>" class="btn categoria">Vestimenta</a>
+                <a href="<?= base_url('inicio/6') ?>" class="btn categoria">Servicios</a>
+                <a href="<?= base_url('inicio/7') ?>" class="btn categoria">Residencias</a>
+                <a href="<?= base_url('inicio/8') ?>" class="btn categoria">Otros</a>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\PublicacionesModel;
+use App\Models\UsuarioModel;
 
 class Publicar extends BaseController
 {
@@ -37,98 +38,41 @@ class Publicar extends BaseController
     }
     
 
-    // public function indexPostCard()
-    // {
-    //     $publicacionesModel = new PublicacionesModel();
+    public function IndexPost($idPublicacion) // El ID de la publicación se pasa como parte de la URL
+{
+    $publicacionesModel = new PublicacionesModel();
+    $publicaciones = $publicacionesModel->findAll();
 
-    //     $publicacion = $publicacionesModel->find(7);
-
-    //     // Asigna cada campo a una variable separada
-    //     $id_categorias = $publicacion['id_categorias'];
-    //     $id_perfiles = $publicacion['id_perfiles'];
-    //     $id_usuarios = $publicacion['id_usuarios'];
-    //     $nombre_public = $publicacion['nombre_public'];
-    //     $precio = $publicacion['precio'];
-    //     $descripcion = $publicacion['descripcion'];
-    //     $imagen_prod = $publicacion['imagen_prod'];
-    //     $likes = $publicacion['likes'];
-    //     $fecha_publicacion = $publicacion['fecha_publicacion'];
-
-    //     // Carga la vista y pasa las variables
-    //     echo view('post-card', [
-    //         'id_categorias' => $id_categorias,
-    //         'id_perfiles' => $id_perfiles,
-    //         'id_usuarios' => $id_usuarios,
-    //         'nombre_public' => $nombre_public,
-    //         'precio' => $precio,
-    //         'descripcion' => $descripcion,
-    //         'imagen_prod' => $imagen_prod,
-    //         'likes' => $likes,
-    //         'fecha_publicacion' => $fecha_publicacion,
-    //     ]);
-    // }
-
-    public function indexPost()
-    {
-        $publicacionesModel = new PublicacionesModel();
-
-        $publicacion = $publicacionesModel->find(7);
-
-        // Asigna cada campo a una variable separada
-        $id_categorias = $publicacion['id_categorias'];
-        $id_perfiles = $publicacion['id_perfiles'];
-        $id_usuarios = $publicacion['id_usuarios'];
-        $nombre_public = $publicacion['nombre_public'];
-        $precio = $publicacion['precio'];
-        $descripcion = $publicacion['descripcion'];
-        $imagen_prod = $publicacion['imagen_prod'];
-        $likes = $publicacion['likes'];
-        $fecha_publicacion = $publicacion['fecha_publicacion'];
-
-        // Carga la vista y pasa las variables
-        echo view('post', [
-            'id_categorias' => $id_categorias,
-            'id_perfiles' => $id_perfiles,
-            'id_usuarios' => $id_usuarios,
-            'nombre_public' => $nombre_public,
-            'precio' => $precio,
-            'descripcion' => $descripcion,
-            'imagen_prod' => $imagen_prod,
-            'likes' => $likes,
-            'fecha_publicacion' => $fecha_publicacion,
-        ]);
+    // Buscar la publicación seleccionada en el arreglo de publicaciones
+    $publicacionSeleccionada = null;
+    foreach ($publicaciones as $publicacion) {
+        if ($publicacion['id_publicaciones'] == $idPublicacion) {
+            $publicacionSeleccionada = $publicacion;
+            break;
+        }
     }
+     // Obtener el ID del usuario asociado a la publicación
+     $idUsuario = $publicacionSeleccionada['id_usuarios'];
 
-    // public function indexInicio()
-    // {
-    //     $publicacionesModel = new PublicacionesModel();
+     // Crear un modelo para los usuarios
+     $usuariosModel = new UsuarioModel();
+ 
+     // Obtener los datos del usuario asociado a la publicación
+     $usuario = $usuariosModel->find($idUsuario);
+ 
+     return view('post', [
+         'publicacion' => $publicacionSeleccionada,
+         'usuario' => $usuario,
+         'publicaciones' => $publicaciones
+     ]);
 
-    //     $publicacion = $publicacionesModel->find(7);
+//     return view('post', [
+//         'publicacion' => $publicacionSeleccionada,
+//         'publicaciones' => $publicaciones
+//     ]);
+}
 
-    //     // Asigna cada campo a una variable separada
-    //     $id_categorias = $publicacion['id_categorias'];
-    //     $id_perfiles = $publicacion['id_perfiles'];
-    //     $id_usuarios = $publicacion['id_usuarios'];
-    //     $nombre = $publicacion['nombre'];
-    //     $precio = $publicacion['precio'];
-    //     $descripcion = $publicacion['descripcion'];
-    //     $imagen_prod = $publicacion['imagen_prod'];
-    //     $likes = $publicacion['likes'];
-    //     $fecha_publicacion = $publicacion['fecha_publicacion'];
 
-    //     // Carga la vista y pasa las variables
-    //     return view('inicio', [
-    //         'id_categorias' => $id_categorias,
-    //         'id_perfiles' => $id_perfiles,
-    //         'id_usuarios' => $id_usuarios,
-    //         'nombre' => $nombre,
-    //         'precio' => $precio,
-    //         'descripcion' => $descripcion,
-    //         'imagen_prod' => $imagen_prod,
-    //         'likes' => $likes,
-    //         'fecha_publicacion' => $fecha_publicacion,
-    //     ]);
-    // }
 
 
 
@@ -172,47 +116,37 @@ class Publicar extends BaseController
             $categoriaId = $this->request->getPost('categoriaId');
             $imagenes = $this->request->getFiles('images');
             $usuario_id = session('usuario')['id_usuarios'];
-            // $imagenNombres = [];
-
-            // if (is_array($imagenes) && count($imagenes) > 0) {
-            //     foreach ($imagenes as $imagen) {
-            //         if ($imagen->isValid() && !$imagen->hasMoved()) {
-            //             // Generar un nombre único para la imagen
-            //             $nombreImagen = $imagen->getRandomName();
-
-            //             // Mover la imagen a la ubicación deseada
-            //             $imagen->move(ROOTPATH . 'public/uploads', $nombreImagen);
-
-            //             // Guardar el nombre de la imagen en un array
-            //             $imagenNombres[] = $nombreImagen;
-            //         }
-            //     }
-            // }
-
-
+            $imagenNombres = [];
+        
+            if (is_array($imagenes) && count($imagenes) > 0) {
+                foreach ($imagenes as $imagen) {
+                    if ($imagen->isValid() && !$imagen->hasMoved()) {
+                        // Generar un nombre único para la imagen
+                        $nombreImagen = $imagen->getRandomName();
+        
+                        // Mover la imagen a la ubicación deseada
+                        $imagen->move(ROOTPATH . 'public/uploads', $nombreImagen);
+        
+                        // Guardar el nombre de la imagen en un array
+                        $imagenNombres[] = $nombreImagen;
+                    }
+                }
+            }
+        
             $data = [
                 'nombre_public' => $nombreProducto,
                 'precio' => $precioProducto,
                 'descripcion' => $descripcionProducto,
                 'id_categorias' => $categoriaId,
-                // 'imagen_prod' => implode(',', $imagenNombres), // Guardar los nombres de las imágenes separados por comas
+                'imagen_prod' => implode(',', $imagenNombres), // Guardar los nombres de las imágenes separados por comas
                 'id_perfiles' => $usuario_id,
                 'id_usuarios' => $usuario_id,
                 'likes' => 0,
             ];
-
+        
             $publicacionesModel = new PublicacionesModel();
             $query = $publicacionesModel->insert($data);
-
-            // if ($query) {
-            //     // El registro se insertó correctamente
-            //     // Realiza cualquier acción adicional necesaria
-            // } else {
-            //     // Ocurrió un error al insertar el registro
-            //     // Realiza cualquier acción adicional necesaria
-            // }
-
-            // // Redireccionar a la vista "inicio"
+        
             return redirect()->to(base_url('inicio'));
         }
     }

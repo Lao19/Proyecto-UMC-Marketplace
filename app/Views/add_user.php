@@ -14,6 +14,7 @@
   </style>
 
 <link rel="stylesheet" href="<?php base_url();?>../public\admin.css">
+<link rel="icon" href="<?= base_url('public/img/logo-umc.webp')?>" type="image/x-icon">
 </head>
 <body>
 <div class="container">

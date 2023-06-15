@@ -6,6 +6,7 @@
     .card {
         background-color:#ffff;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3); /* Agregar sombra */
+        margin: 20px;
     }
 
     .btn {
@@ -36,7 +37,8 @@
 
 
     <!-- Itera sobre cada publicación y muestra las tarjetas -->
-<?php foreach ($publicaciones as $publicacion): ?>
+<!-- Recorrer el arreglo de publicaciones -->
+<?php foreach ($publicaciones as $publicacion) : ?>
     <div class="card" style="width: 18rem;">
         <img src="<?php echo base_url('public/img/raton.webp'); ?>" class="card-img-top pic" alt="...">
 
@@ -50,7 +52,7 @@
             </p>
 
             <div class="card-btn text-end">
-                <a href="<?php echo base_url('post') ?>" class="btn btn-primary">Ver publicación</a>
+            <a href="<?php echo base_url('post/'.$publicacion['id_publicaciones']); ?>" class="btn btn-primary">Ver publicación</a>
             </div>
         </div>
     </div>

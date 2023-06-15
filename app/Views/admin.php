@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>CRUD</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link rel="icon" href="<?= base_url('public/img/logo-umc.webp')?>" type="image/x-icon">
 
   <!--Hoja de estilos css-->
   <link rel="stylesheet" href="<?php base_url();?>public\admin.css">
@@ -23,6 +24,7 @@
      ?>
 
     <a href="<?php echo base_url('inicio');?>" class="btn btn-warning" style="margin-bottom: 10px;">Inicio</a>
+    
     
     <table class="table table-bordered table-striped" id="users-list">
        <thead>
