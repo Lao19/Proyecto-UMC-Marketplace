@@ -45,7 +45,7 @@
 
               <!--Boton al perfil del usuario-->
               <li class="nav-item">
-                <a class="nav-link" href="profile/<?php echo session('usuario')['usuario']; ?>">
+                <a class="nav-link" href="/Proyecto-Uni/profile/<?php echo session('usuario')['usuario']; ?>">
                   <i class="fa-solid fa-user fa-xl icon" style="color: #50b9e6;"></i>
                   Perfil
                 </a>
