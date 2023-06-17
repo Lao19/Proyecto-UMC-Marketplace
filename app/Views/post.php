@@ -30,43 +30,9 @@
 <body>
 
  <!--Llamado al archivo header que contiene la barra de navegacion-->
- <header style="position:sticky; top: 0; z-index: 1000;"> 
-  <!--Barra de navegacion-->
-    <nav class="navbar navbar-dark bg-dark sticky-top" >
-
-      <div class="container-fluid">
-
-        <!--titulo y logo de la barra de navegacion-->
-        <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
-          <img class="logo-nav" src="<?= base_url('public/img/logo-umc.webp')?>" alt="">
-          UMC Marketplace
-        </a>
-
-        <!--Barra y boton de busqueda-->
-        <!-- <nav class="navbar bg-dark busqueda ">
-          <div class="container-fluid">
-
-            <form action="<?php echo base_url('/buscar')?>" method="post" class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-light btn-busqueda" type="submit">
-                <img class="buscar-logo" src="<?= base_url('public/img/busqueda.svg') ?>" alt="">
-              </button>
-            </form>
-
-          </div>
-        </nav> -->
-
-        
-          
-            
-          </div>
-
-        </div>
-
-      </div>
-
-    </nav>
-  </header>
+   <?php
+    include_once "header.php";
+  ?>
 
 	<!--Cuadro de ajustes del perfil-->
 	<section class="my-5">
