@@ -32,30 +32,9 @@
 <body>
 
  <!--Llamado al archivo header que contiene la barra de navegacion-->
- <header style="position:sticky; top: 0; z-index: 1000;"> 
-  <!--Barra de navegacion-->
-    <nav class="navbar navbar-dark bg-dark sticky-top" >
-
-      <div class="container-fluid">
-
-        <!--titulo y logo de la barra de navegacion-->
-        <a class="navbar-brand title-nav" href= "<?php echo base_url('inicio');?>">
-          <img class="logo-nav" src="<?= base_url('public/img/logo-umc.webp')?>" alt="">
-          UMC Marketplace
-        </a>
-
-        
-          
-            
-          </div>
-
-        </div>
-
-      </div>
-
-    </nav>
-  </header>
-
+   <?php
+    include_once "header.php";
+  ?>
 
 	<!--Cuadro de ajustes del perfil-->
 	<section class="my-3">
